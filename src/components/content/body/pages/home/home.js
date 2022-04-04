@@ -25,7 +25,9 @@ class home extends Component {
 
          return (
 
-          <div>Home</div>
+          <div>
+            <h2><span className='text-danger'>Бокс</span> начинается здесь</h2>
+          </div>
             
          )
      }

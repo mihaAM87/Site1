@@ -47,6 +47,7 @@ class carusel extends Component {
 
                         <Carousel.Item>
                             <img
+                                key={itemKey}
                                 className={imgClasses.join(' ')}
                                 src={IMG_DIRECTORY + element.contents.img}
                                 alt={element.contents.header}

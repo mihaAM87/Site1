@@ -29,22 +29,25 @@ class myMenu extends Component {
 
         const navClass = [];
 
-        navClass.push(classes.redBackground);
+        // navClass.push('bg-danger');
+        // navClass.push('text-white');
+        // navClass.push('col-md-12');
+        navClass.push('row');
 
         if (sportTypesArr && sportTypesArr.contents && sportTypesArr.contents.length > 0) {
             sportTypesArr = sportTypesArr.contents.map(element => 
                 {
+                    let itemKey = Math.random();
                     return (
-                        <NavDropdown.Item as={NavLink} to="/sportTypes">{element.name}</NavDropdown.Item>
+                        <NavDropdown.Item key={itemKey} as={NavLink} to="/sportTypes">{element.name}</NavDropdown.Item>
                         
                     )
                 });
         }
 
         return (
-            <div className='row'>
-                <Navbar bg="light" expand="lg" variant="dark" className='col-md-12'>
-                    <Container className={navClass.join(' ')}>
+            <Navbar bg="danger" expand="lg" variant="dark">
+                    <Container>
                         <Navbar.Toggle aria-controls="basic-navbar-nav" />
                             <Navbar.Collapse id="basic-navbar-nav">
                                 <Nav className="me-auto">
@@ -55,10 +58,9 @@ class myMenu extends Component {
                                     <Nav.Link as={NavLink} to="/coaches">Тренеры</Nav.Link>
                                     <Nav.Link as={NavLink} to="/contacts">Контакты</Nav.Link>
                                 </Nav>    
-                        </Navbar.Collapse>
+                            </Navbar.Collapse>
                     </Container>
                  </Navbar>
-            </div>
                     
             
           )
