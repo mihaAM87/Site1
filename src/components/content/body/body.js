@@ -31,7 +31,7 @@ class body extends Component {
          return (
           <div className={classes.myBody}>
             <Switch>
-              <Route path="/sportTypes" component={SportTypes} />
+              <Route path="/sportTypes/:id" component={SportTypes} />
               <Route path="/coaches" component={Coaches} />
               <Route path="/prices" component={Prices} />
               <Route path="/contacts" component={Contacts} />

@@ -1,4 +1,4 @@
-import {LOAD_ALL_CONTENTS, SPORT_TYPES, GROUP_TYPES, COACHES, PRICES, START, ERROR} from './content';
+import {LOAD_ALL_CONTENTS, SPORT_TYPES, GROUP_TYPES, SPORT_TYPES_ITEM, COACHES, PRICES, START, ERROR} from './content';
 import axios from 'axios'
 
 import source from '../source/source.json';
@@ -20,6 +20,13 @@ export function fetchContentError(e) {
 export function getSportTypeContent(contentArr) {
   return {
     type: LOAD_ALL_CONTENTS + SPORT_TYPES,
+    contentArr
+  }
+}
+
+export function getSportTypeItemContent(contentArr) {
+  return {
+    type: LOAD_ALL_CONTENTS + SPORT_TYPES_ITEM,
     contentArr
   }
 }
@@ -47,7 +54,7 @@ export function getPricesContent(contentArr) {
 
 
 
-export function fetchAllContentByType(type, contentArr) {
+export function fetchAllContentByType(type, contentArr, id = null) {
   return async dispatch => {
 
     dispatch(fetchContentStart());
@@ -60,6 +67,10 @@ export function fetchAllContentByType(type, contentArr) {
 
       switch (type) {
         case 'sportTypes': {
+          if (id) {
+            contentArr = contentArr.contents.find(item => item.name === id);
+            dispatch(getSportTypeItemContent(contentArr));
+          }
           dispatch(getSportTypeContent(contentArr));
           break;
         };

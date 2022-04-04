@@ -15,7 +15,7 @@ class left extends Component {
         return (
             <div className='col-md-6 d-flex align-items-center justify-content-center'>
                 <div>
-                    <h1 className="text-white d-flex justify-content-start col-md-12">Тренировка</h1>
+                    <h1 className="text-white d-flex justify-content-start col-md-12">Спорт</h1>
                     <h2 className="text-white d-flex justify-content-start col-md-12">Первая тренировка</h2>
                     <h2 className="text-white d-flex justify-content-start col-md-12">Бесплатно</h2>
                     <div className='row d-flex justify-content-start col-md-12'>

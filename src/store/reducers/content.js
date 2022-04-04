@@ -1,4 +1,4 @@
-import {LOAD_ALL_CONTENTS, SPORT_TYPES, GROUP_TYPES, COACHES, PRICES, START, ERROR} from '../actions/content';
+import {LOAD_ALL_CONTENTS, SPORT_TYPES, GROUP_TYPES, SPORT_TYPES_ITEM, COACHES, PRICES, START, ERROR} from '../actions/content';
 import {OrderedMap, Record} from 'immutable'
 
 const ReducerState = Record({
@@ -26,6 +26,10 @@ export default function contentReducer(state = initialState, action) {
     case LOAD_ALL_CONTENTS + SPORT_TYPES:
       return {
         ...state, loading: false, sportTypesArr: action.contentArr
+      }
+    case LOAD_ALL_CONTENTS + SPORT_TYPES_ITEM:
+      return {
+        ...state, loading: false, sportType: action.contentArr
       }
     case LOAD_ALL_CONTENTS + GROUP_TYPES:
       return {

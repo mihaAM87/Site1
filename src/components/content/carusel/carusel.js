@@ -3,7 +3,7 @@ import Carousel from 'react-bootstrap/Carousel'
 import PropTypes from 'prop-types'
 import classes from './carusel.module.scss'
 import { connect } from 'react-redux'
-import {IMG_DIRECTORY} from '../../../store/actions/content'
+import {IMG_DIRECTORY, GROUPTYPES_IMGES_DIR} from '../../../store/actions/content'
 import {fetchAllContentByType} from '../../../store/actions/contentSrc'
 import Radium from 'radium'
 
@@ -49,7 +49,7 @@ class carusel extends Component {
                             <img
                                 key={itemKey}
                                 className={imgClasses.join(' ')}
-                                src={IMG_DIRECTORY + element.contents.img}
+                                src={IMG_DIRECTORY + GROUPTYPES_IMGES_DIR + element.contents.img}
                                 alt={element.contents.header}
                             />
                             <Carousel.Caption>
@@ -59,10 +59,7 @@ class carusel extends Component {
                         </Carousel.Item>
 
                     )
-                });
-
-                
-                
+                });       
         }
 
          return (

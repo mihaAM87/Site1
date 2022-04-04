@@ -4,7 +4,6 @@ import classes from './mainImage.module.scss'
 import Left from './left/left'
 import Right from './right/right'
 import { connect } from 'react-redux'
-import {MAIN_IMG} from '../../../store/actions/content'
 import Radium from 'radium'
 
 class mainImage extends Component {

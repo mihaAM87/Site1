@@ -29,9 +29,6 @@ class myMenu extends Component {
 
         const navClass = [];
 
-        // navClass.push('bg-danger');
-        // navClass.push('text-white');
-        // navClass.push('col-md-12');
         navClass.push('row');
 
         if (sportTypesArr && sportTypesArr.contents && sportTypesArr.contents.length > 0) {
@@ -39,7 +36,7 @@ class myMenu extends Component {
                 {
                     let itemKey = Math.random();
                     return (
-                        <NavDropdown.Item key={itemKey} as={NavLink} to="/sportTypes">{element.name}</NavDropdown.Item>
+                        <NavDropdown.Item key={itemKey} as={NavLink} to={"/sportTypes/" + element.name}>{element.header}</NavDropdown.Item>
                         
                     )
                 });

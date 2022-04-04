@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import classes from './right.module.scss'
 import { connect } from 'react-redux'
-import {MAIN_IMG, IMG_DIRECTORY} from '../../../../store/actions/content'
+import {MAIN_IMG, IMG_DIRECTORY, MAIN_IMGES_DIR} from '../../../../store/actions/content'
 import Radium from 'radium'
 
 class right extends Component {
@@ -17,7 +17,7 @@ class right extends Component {
         imgClass.push(classes.mainImg);
         return (
             <div className='col-md-6'>
-                    <img src={IMG_DIRECTORY + MAIN_IMG} className={imgClass.join(' ')}></img>
+                    <img src={IMG_DIRECTORY + MAIN_IMGES_DIR + MAIN_IMG} className={imgClass.join(' ')}></img>
             </div>
           )
     }
