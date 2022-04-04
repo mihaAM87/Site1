@@ -1,0 +1,66 @@
+[
+    {"type":"sportTypes","contents":[
+      {"type":"item","name":"Бокс"},
+      {"type":"item","name":"Кикбоксинг"},
+      {"type":"item","name":"Тайский бокс"},
+      {"type":"item","name":"ММА"},
+      {"type":"item","name":"Самбо"},
+      {"type":"item","name":"Боевое Самбо"},
+      {"type":"item","name":"Дюдо"},
+      {"type":"item","name":"Боевая борьба"}
+    ]},
+    {"type":"coaches","contents":[
+      {"type":"coach","name":"Юрий","contents":
+        {"type":"content","header":"Карате",
+          "content":"Преподаватель-организатор физического воспитания спорта «Донецкого национального университета».",
+          "img":"Юрий.jpg"
+      }},
+      {"type":"coach","name":"Валерий","contents":
+        {"type":"content","header":"Ушу",
+          "content":"Преподаёт больше практики",
+          "img":"Валерий.jpg"
+      }},
+      {"type":"coach","name":"Кантемир","contents":
+        {"type":"content","header":"Ушу",
+          "content":"Преподаёт ОФП",
+          "img":"Кантемир.jpg"
+      }}
+    ]},
+    {"type":"groupTypes","contents":[
+      {"type":"group","name":"Женщины","contents":
+        {"type":"content","header":"Женщины",
+          "content":"У нас тренируются женщины",
+          "img":"women.jpg"
+      }},
+      {"type":"group","name":"Новички","contents":
+        {"type":"content","header":"Новички",
+          "content":"У нас тренируются новички",
+          "img":"beginners.jpg"
+      }},
+      {"type":"group","name":"Дети","contents":
+        {"type":"content","header":"Дети",
+          "content":"У нас тренируются дети",
+          "img":"children.jpg"
+      }},
+      {"type":"group","name":"Опытные","contents":
+        {"type":"content","header":"Опытные",
+          "content":"У нас тренируются опытные",
+          "img":"experienced.jpg"
+      }},
+      {"type":"group","name":"Персональные","contents":
+        {"type":"content","header":"Персональные",
+          "content":"У нас тренируются персонально",
+          "img":"personal.jpg"
+      }}
+    ]},
+    {"type":"prices","contents":[
+      {"type":"item","name":"Разовая","content": {
+        "conditions": "",
+        "price": 500
+      }},
+      {"type":"item","name":"1 месяц","content": {
+        "conditions": "3 раза в неделю",
+        "price": 4000
+      }}
+    ]}
+  ]
