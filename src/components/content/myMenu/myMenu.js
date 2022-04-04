@@ -42,22 +42,25 @@ class myMenu extends Component {
         }
 
         return (
-
-            <Navbar bg="light" expand="lg" variant="dark">
-                <Container className={navClass.join(' ')}>
-                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                    <Navbar.Collapse id="basic-navbar-nav">
-                        <Nav className="me-auto">
-                            <NavDropdown title="Виды спорта" id="basic-nav-dropdown">
-                                {sportTypesArr}
-                            </NavDropdown>
-                            <Nav.Link as={NavLink} to="/prices">Стоимость</Nav.Link>
-                            <Nav.Link as={NavLink} to="/coaches">Тренеры</Nav.Link>
-                            <Nav.Link as={NavLink} to="/contacts">Контакты</Nav.Link>
-                        </Nav>
-                    </Navbar.Collapse>
-                </Container>
-            </Navbar>
+            <div className='row'>
+                <Navbar bg="light" expand="lg" variant="dark" className='col-md-12'>
+                    <Container className={navClass.join(' ')}>
+                        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                            <Navbar.Collapse id="basic-navbar-nav">
+                                <Nav className="me-auto">
+                                    <NavDropdown title="Виды спорта" id="basic-nav-dropdown">
+                                        {sportTypesArr}
+                                    </NavDropdown>
+                                    <Nav.Link as={NavLink} to="/prices">Стоимость</Nav.Link>
+                                    <Nav.Link as={NavLink} to="/coaches">Тренеры</Nav.Link>
+                                    <Nav.Link as={NavLink} to="/contacts">Контакты</Nav.Link>
+                                </Nav>    
+                        </Navbar.Collapse>
+                    </Container>
+                 </Navbar>
+            </div>
+                    
+            
           )
     }
 
