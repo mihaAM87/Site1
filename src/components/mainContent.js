@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import classes from './mainContent.module.scss'
 import Header from './content/header/header'
-import MyMenu from './content/myMenu/myMenu'
 import MainImage from './content/mainImage/mainImage'
 import Carusel from './content/carusel/carusel'
 import Body from './content/body/body'
@@ -18,14 +17,27 @@ class mainContent extends Component {
 
     render() {
       
+      let mainClass = []
+      let headerClass = []
+        
+      mainClass.push('row');
+      mainClass.push(classes.mainClass);
+
+      headerClass.push('row');
+      headerClass.push(classes.headerClass);
+
         return (
           <div className='row'>
-            <Header />
-            <MyMenu />
-            <MainImage />
-            <Carusel />
-            <Body />
-            <Footer />
+            <div className={headerClass.join(' ')}>
+              <Header />
+            </div>
+            <div className={mainClass.join(' ')}>
+              <MainImage />
+              <Carusel />
+              <Body />
+              <Footer />
+            </div>
+            
           </div>
           
         );

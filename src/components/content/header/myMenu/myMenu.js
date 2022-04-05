@@ -4,7 +4,7 @@ import { Outlet, NavLink, Link } from 'react-router-dom';
 import PropTypes from 'prop-types'
 import classes from './myMenu.module.scss'
 import { connect } from 'react-redux'
-import {fetchAllContentByType} from '../../../store/actions/contentSrc'
+import {fetchAllContentByType} from '../../../../store/actions/contentSrc'
 import Radium from 'radium'
 
 class myMenu extends Component {

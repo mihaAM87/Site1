@@ -1,6 +1,6 @@
 export const LOGOTYPE = 'logotype.png'
 export const MAIN_IMG = 'first-block-bg.jpg'
-export const METRO_IMG = 'beginners.png'
+export const METRO_IMG = 'met.png'
 export const IMG_DIRECTORY = '/img/'
 export const SPORTTYPES_IMGES_DIR = 'sportTypes/'
 export const GROUPTYPES_IMGES_DIR = 'groupTypes/'

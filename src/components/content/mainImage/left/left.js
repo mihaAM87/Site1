@@ -12,8 +12,13 @@ class left extends Component {
 
      render() {
 
+        const mainClass = [];
+
+        mainClass.push(classes.mainClass);
+        mainClass.push('col-md-6 d-flex align-items-center justify-content-center')
+
         return (
-            <div className='col-md-6 d-flex align-items-center justify-content-center'>
+            <div className={mainClass.join(' ')}>
                 <div>
                     <h1 className="text-white d-flex justify-content-start col-md-12">Спорт</h1>
                     <h2 className="text-white d-flex justify-content-start col-md-12">Первая тренировка</h2>
