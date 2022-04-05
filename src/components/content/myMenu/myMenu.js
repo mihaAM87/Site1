@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
-import {Navbar, Nav, NavDropdown, Container} from 'react-bootstrap';
-import { Outlet, NavLink } from 'react-router-dom';
+import {Navbar, Nav, NavDropdown, Container, NavItem} from 'react-bootstrap';
+import { Outlet, NavLink, Link } from 'react-router-dom';
 import PropTypes from 'prop-types'
 import classes from './myMenu.module.scss'
 import { connect } from 'react-redux'
@@ -36,7 +36,7 @@ class myMenu extends Component {
                 {
                     let itemKey = Math.random();
                     return (
-                        <NavDropdown.Item key={itemKey} as={NavLink} to={"/sportTypes/" + element.name}>{element.header}</NavDropdown.Item>
+                        <NavDropdown.Item key={itemKey} as={Link} to={"/sportTypes/" + element.name}>{element.header}</NavDropdown.Item>
                         
                     )
                 });
@@ -48,7 +48,7 @@ class myMenu extends Component {
                         <Navbar.Toggle aria-controls="basic-navbar-nav" />
                             <Navbar.Collapse id="basic-navbar-nav">
                                 <Nav className="me-auto">
-                                    <NavDropdown title="Виды спорта" id="basic-nav-dropdown">
+                                    <NavDropdown as={Link} title="Виды спорта" id="basic-nav-dropdown">
                                         {sportTypesArr}
                                     </NavDropdown>
                                     <Nav.Link as={NavLink} to="/prices">Стоимость</Nav.Link>

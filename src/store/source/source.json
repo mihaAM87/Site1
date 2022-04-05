@@ -1,72 +1,72 @@
 [
     {"type":"sportTypes","contents":[
-      {"type":"item","name":"Бокс","img":"Бокс.jpeg","header":"Бокс",
+      {"type":"item","name":"Box","img":"Бокс.jpeg","header":"Бокс",
         "content":"Бокс (от фр. boxe — «бокс» и boxeur — «боксёр», которые происходят от англ. to box — «драться на ринге», «боксировать», или же непосредственно из англ. boxing, to box, происходящих, видимо, от англ. box — «коробка», «ящик», «ринг») "},
-      {"type":"item","name":"Кикбоксинг","img":"Кикбоксинг.jpg","header":"Кикбоксинг",
+      {"type":"item","name":"Kickboxing","img":"Кикбоксинг.jpg","header":"Кикбоксинг",
         "content":"Кикбо́ксинг (от kick — с англ. — «удар ногой»; boxing — «бокс»)"},
-      {"type":"item","name":"Тайский_бокс","img":"Тайский_бокс.jpeg","header":"Тайский бокс",
+      {"type":"item","name":"Thai_Boxing","img":"Тайский_бокс.jpeg","header":"Тайский бокс",
         "content":"Тайский бокс, или муай-тай (тайск. มวยไทย)"},
-      {"type":"item","name":"ММА","img":"ММА.jpg","header":"ММА",
+      {"type":"item","name":"MMA","img":"ММА.jpg","header":"ММА",
         "content":"ММА — Mixed Martial Arts, англоязычный акроним, обозначающий смешанные боевые искусства."},
-      {"type":"item","name":"Самбо","img":"Самбо.jpeg","header":"Самбо",
+      {"type":"item","name":"Sambo","img":"Самбо.jpeg","header":"Самбо",
         "content":"Са́мбо (акроним — самозащита без оружия)"},
-      {"type":"item","name":"Боевое_Самбо","img":"Боевое_Самбо.jpg","header":"Боевое Самбо",
+      {"type":"item","name":"Combat_Sambo","img":"Боевое_Самбо.jpg","header":"Боевое Самбо",
         "content":"Боевое Са́мбо (акроним — самозащита без оружия)"},
-      {"type":"item","name":"Дзюдо","img":"Дзюдо.jpg","header":"Дзюдо",
+      {"type":"item","name":"Judo","img":"Дзюдо.jpg","header":"Дзюдо",
         "content":"Дзюдо́ (яп. 柔道 дзю: до:, дословно — «Мягкий путь»; в России также часто используется вариант перевода «Гибкий путь») "},
-      {"type":"item","name":"Боевая_борьба","img":"Боевая_борьба.jpg","header":"Боевая борьба",
+      {"type":"item","name":"Combat_wrestling","img":"Боевая_борьба.jpg","header":"Боевая борьба",
         "content":"Борьба́ — единоборство, рукопашная схватка двух людей, в которой каждый старается осилить другого, свалив его с ног"}
     ]},
     {"type":"coaches","contents":[
-      {"type":"coach","name":"Юрий","contents":
+      {"type":"coach","name":"Yuri","contents":
         {"type":"content","header":"Карате",
           "content":"Преподаватель-организатор физического воспитания спорта «Донецкого национального университета».",
           "img":"Юрий.jpg"
       }},
-      {"type":"coach","name":"Валерий","contents":
+      {"type":"coach","name":"Valery","contents":
         {"type":"content","header":"Ушу",
           "content":"Преподаёт больше практики",
           "img":"Валерий.jpg"
       }},
-      {"type":"coach","name":"Кантемир","contents":
+      {"type":"coach","name":"Cantemir","contents":
         {"type":"content","header":"Ушу",
           "content":"Преподаёт ОФП",
           "img":"Кантемир.jpg"
       }}
     ]},
     {"type":"groupTypes","contents":[
-      {"type":"group","name":"Женщины","contents":
+      {"type":"group","name":"women","contents":
         {"type":"content","header":"Женщины",
           "content":"У нас тренируются женщины",
           "img":"women.jpg"
       }},
-      {"type":"group","name":"Новички","contents":
+      {"type":"group","name":"beginners","contents":
         {"type":"content","header":"Новички",
           "content":"У нас тренируются новички",
           "img":"beginners.jpg"
       }},
-      {"type":"group","name":"Дети","contents":
+      {"type":"group","name":"children","contents":
         {"type":"content","header":"Дети",
           "content":"У нас тренируются дети",
           "img":"children.jpg"
       }},
-      {"type":"group","name":"Опытные","contents":
+      {"type":"group","name":"experienced","contents":
         {"type":"content","header":"Опытные",
           "content":"У нас тренируются опытные",
           "img":"experienced.jpg"
       }},
-      {"type":"group","name":"Персональные","contents":
+      {"type":"group","name":"personal","contents":
         {"type":"content","header":"Персональные",
           "content":"У нас тренируются персонально",
           "img":"personal.jpg"
       }}
     ]},
     {"type":"prices","contents":[
-      {"type":"item","name":"Разовая","content": {
+      {"type":"item","name":"Once","header":"Разовая","content": {
         "conditions": "",
         "price": 500
       }},
-      {"type":"item","name":"1 месяц","content": {
+      {"type":"item","name":"Month1","header":"1 месяц","content": {
         "conditions": "3 раза в неделю",
         "price": 4000
       }}

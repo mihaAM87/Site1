@@ -32,12 +32,11 @@ class sportTypes extends Component {
         navClass.push('row');
         navClass.push('text-white');
         navClass.push(classes.mainContent);
-        let itemKey = Math.random();
         return (
 
-          <div key={itemKey} className={navClass.join(' ')} style={{backgroundImage: "url(" + IMG_DIRECTORY + SPORTTYPES_IMGES_DIR + sportType.img + ")"}}>
+          <div className={navClass.join(' ')} style={{backgroundImage: "url(" + IMG_DIRECTORY + SPORTTYPES_IMGES_DIR + sportType.img + ")"}}>
             <h2>{sportType.header}</h2>
-            <p>{sportType.content}</p>
+            <h3>{sportType.content}</h3>
           </div>
             
          )
