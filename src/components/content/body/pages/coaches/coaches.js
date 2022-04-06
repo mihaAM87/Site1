@@ -1,78 +1,78 @@
-import React, {Component} from 'react'
-import PropTypes from 'prop-types'
-import classes from './coaches.module.scss'
-import { connect } from 'react-redux'
-import {IMG_DIRECTORY, COACHES_IMGES_DIR} from '../../../../../store/actions/content'
-import {fetchAllContentByType} from '../../../../../store/actions/contentSrc'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import classes from './coaches.module.scss';
+import { connect } from 'react-redux';
+import {
+  IMG_DIRECTORY,
+  COACHES_IMGES_DIR,
+} from '../../../../../store/actions/content';
+import { fetchAllContentByType } from '../../../../../store/actions/contentSrc';
+import Card from 'react-bootstrap/Card';
 
-import Radium from 'radium'
+import Radium from 'radium';
 
 class coaches extends Component {
-
   static contextTypes = {
     type: PropTypes.string,
-    coachesArr: PropTypes.array
-  }
+    coachesArr: PropTypes.array,
+  };
 
   state = {
-    coachesArr: []
-  }
+    coachesArr: [],
+  };
 
   componentWillMount() {
-    this.props.coachesInit("coaches", this.state.coachesArr);
+    this.props.coachesInit('coaches', this.state.coachesArr);
   }
 
   render() {
-    let {coachesArr} = this.props;
+    let { coachesArr } = this.props;
     coachesArr = coachesArr || [];
 
-        const itemClass = [];
+    const itemClass = [];
 
-        itemClass.push('col-md-4');
+    itemClass.push('col-md-4');
 
-        if (coachesArr && coachesArr.contents && coachesArr.contents.length > 0) {
-          coachesArr = coachesArr.contents.map(element => 
-            {
-                let itemKey = Math.random();
-                return (
-                  <div className={itemClass.join(' ')}>
-                    <Card key={itemKey}>
-                      <Card.Img variant="top" src={IMG_DIRECTORY + COACHES_IMGES_DIR + content.contents.img} />
-                      <Card.Body>
-                        <Card.Title>{content.contents.header}</Card.Title>
-                        <Card.Text>
-                          {content.contents.content}
-                        </Card.Text>
-                        {/* <Button variant="primary">Go somewhere</Button> */}
-                      </Card.Body>
-                    </Card>
-                  </div>
-                  
-                    
-                )
-            });
-        }
+    if (coachesArr && coachesArr.contents && coachesArr.contents.length > 0) {
+      coachesArr = coachesArr.contents.map((element) => {
+        let itemKey = Math.random();
+        return (
+          <div className={itemClass.join(' ')}>
+            <Card key={itemKey}>
+              <Card.Img
+                variant="top"
+                src={IMG_DIRECTORY + COACHES_IMGES_DIR + element.contents.img}
+              />
+              <Card.Body>
+                <Card.Title>{element.contents.header}</Card.Title>
+                <Card.Text>{element.contents.content}</Card.Text>
+                {/* <Button variant="primary">Go somewhere</Button> */}
+              </Card.Body>
+            </Card>
+          </div>
+        );
+      });
+    }
 
-      
-
-
-         return (
-
-          <div>Coaches</div>
-            
-         )
-     }
+    return (
+      <div className="conteiner">
+        <div className="row">{coachesArr}</div>
+      </div>
+    );
+  }
 }
 function mapStateToProps(state) {
-    return {
-        
-      }
-  }
-  
-  function mapDispatchToProps(dispatch) {
-    return {
-        
-    }
-  }
+  return {
+    coachesArr: state.content.coachesArr,
+    loading: state.content.loading,
+  };
+}
 
-export default connect(mapStateToProps, mapDispatchToProps)(coaches)
+function mapDispatchToProps(dispatch) {
+  return {
+    coachesInit: (type, coachesArr) =>
+      dispatch(fetchAllContentByType(type, coachesArr)),
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(coaches);
