@@ -92,6 +92,16 @@
           "content": "Преподаёт ОФП",
           "img": "Кантемир.webp"
         }
+      },
+      {
+        "type": "coach",
+        "name": "Jackie_Chan",
+        "contents": {
+          "type": "content",
+          "header": "Кантемир",
+          "content": "Работает у всей Земли Кумиром",
+          "img": "Джеки_Чан.jpg"
+        }
       }
     ]
   },
