@@ -25,20 +25,21 @@ class contacts extends Component {
           <h1 className="col-md-12">КОНТАКТЫ КЛУБА</h1>
           <div className="col-md-12">
             <h3>
+              <strong>Адрес: </strong>
               <img
                 src={IMG_DIRECTORY + MAIN_IMGES_DIR + METRO_IMG}
                 className={classes.metroImg}
               ></img>
-              <span>
+              <strong>
                 г. Москва, Краснодонская улица, 39, м. "Волжская", м. "Люблино"
-              </span>
+              </strong>
             </h3>
           </div>
           <div className="col-md-12">
             <h3>
-              <span>MikhailAA1@yandex.ru</span>
+              <span>Электронная почта: MikhailAA1@yandex.ru</span>
               <br />
-              <span>+7 (964) 763-21-29</span>
+              <span>Номер телефона: +7 (964) 763-21-29</span>
             </h3>
           </div>
         </div>
