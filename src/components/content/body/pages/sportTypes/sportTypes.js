@@ -1,58 +1,68 @@
-import React, {Component} from 'react'
-import PropTypes from 'prop-types'
-import classes from './sportTypes.module.scss'
-import { connect } from 'react-redux'
-import {IMG_DIRECTORY, SPORTTYPES_IMGES_DIR} from '../../../../../store/actions/content'
-import {fetchAllContentByType} from '../../../../../store/actions/contentSrc'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import classes from './sportTypes.module.scss';
+import { connect } from 'react-redux';
+import {
+  IMG_DIRECTORY,
+  SPORTTYPES_IMGES_DIR,
+} from '../../../../../store/actions/content';
+import { fetchAllContentByType } from '../../../../../store/actions/contentSrc';
 
-import Radium from 'radium'
+import Radium from 'radium';
 
 class sportTypes extends Component {
+  static contextTypes = {
+    type: PropTypes.string,
+    sportType: PropTypes.object,
+  };
 
-    static contextTypes = {
-      type: PropTypes.string,
-      sportType: PropTypes.array
-    }
+  state = {
+    sportType: [],
+  };
 
-    state = {
-      sportType: []
-    }
+  componentWillMount() {
+    this.props.sportTypeInit(
+      'sportTypes',
+      this.state.sportType,
+      this.props.match.params.id
+    );
+  }
 
-    componentWillMount() {
-      this.props.sportTypeInit("sportTypes", this.state.sportType, this.props.match.params.id);
-    }
+  render() {
+    let { sportType } = this.props;
+    sportType = sportType || [];
 
-     render() {
+    const navClass = [];
 
-      let {sportType} = this.props;
-        sportType = sportType || [];
-
-        const navClass = [];
-
-        navClass.push('row');
-        navClass.push('text-white');
-        navClass.push(classes.mainContent);
-        return (
-
-          <div className={navClass.join(' ')} style={{backgroundImage: "url(" + IMG_DIRECTORY + SPORTTYPES_IMGES_DIR + sportType.img + ")"}}>
-            <h2>{sportType.header}</h2>
-            <h3>{sportType.content}</h3>
-          </div>
-            
-         )
-     }
+    navClass.push('row');
+    navClass.push('text-white');
+    navClass.push(classes.mainContent);
+    return (
+      <div
+        className={navClass.join(' ')}
+        style={{
+          backgroundImage:
+            'url(' + IMG_DIRECTORY + SPORTTYPES_IMGES_DIR + sportType.img + ')',
+        }}
+      >
+        <h2>{sportType.header}</h2>
+        <h3>{sportType.content}</h3>
+      </div>
+    );
+  }
 }
 function mapStateToProps(state) {
-    return {
-        sportType: state.content.sportType,
-        loading: state.content.loading
-    }
-  }
-  
-  function mapDispatchToProps(dispatch) {
-    return {
-        sportTypeInit: (type, sportType, id) => dispatch(fetchAllContentByType(type, sportType, id))
-    }
-  }
+  return {
+    sportType: state.content.sportType,
+    loading: state.content.loading,
+  };
+}
 
-export default connect(mapStateToProps, mapDispatchToProps)(sportTypes)
+function mapDispatchToProps(dispatch) {
+  return {
+    sportTypeInit: (type, sportType, id) =>
+      dispatch(fetchAllContentByType(type, sportType, id)),
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(sportTypes);
