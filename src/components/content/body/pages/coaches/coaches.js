@@ -37,8 +37,8 @@ class coaches extends Component {
       coachesArr = coachesArr.contents.map((element) => {
         let itemKey = Math.random();
         return (
-          <div className={itemClass.join(' ')}>
-            <Card key={itemKey}>
+          <div className={itemClass.join(' ')} key={itemKey}>
+            <Card>
               <Card.Img
                 variant="top"
                 src={IMG_DIRECTORY + COACHES_IMGES_DIR + element.contents.img}

@@ -38,14 +38,21 @@ class prices extends Component {
       pricesArr = pricesArr.contents.map((element) => {
         let itemKey = Math.random();
         return (
-          <div className={itemClass.join(' ')}>
-            <Card key={itemKey} className={classes.itemImg}>
+          <div key={itemKey} className={itemClass.join(' ')}>
+            <Card className={classes.itemImg}>
               <Card.Body>
                 <Card.Title>
                   <h3>{element.header}</h3>
                 </Card.Title>
                 <Card.Subtitle className="mb-2 text-muted">
-                  <p>{element.content.conditions}</p>
+                  {element.content.conditions ? (
+                    <p>{element.content.conditions}</p>
+                  ) : (
+                    <div>
+                      <p></p>
+                      <br />
+                    </div>
+                  )}
                 </Card.Subtitle>
                 <Card.Text>
                   <h2>{element.content.price}.</h2>

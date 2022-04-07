@@ -37,20 +37,31 @@ class sportTypes extends Component {
     navClass.push('row');
     navClass.push('text-white');
     navClass.push(classes.mainContent);
+
     return (
-      <div
-        className={navClass.join(' ')}
-        style={{
-          backgroundImage:
-            'url(' + IMG_DIRECTORY + SPORTTYPES_IMGES_DIR + sportType.img + ')',
-        }}
-      >
-        <h2>{sportType.header}</h2>
-        <h3>{sportType.content}</h3>
+      <div className={navClass.join(' ')}>
+        {sportType && sportType?.img ? (
+          <div
+            style={{
+              backgroundImage:
+                'url(' +
+                IMG_DIRECTORY +
+                SPORTTYPES_IMGES_DIR +
+                sportType.img +
+                ')',
+            }}
+          >
+            <h2>{sportType.header}</h2>
+            <h3>{sportType.content}</h3>
+          </div>
+        ) : (
+          <br />
+        )}
       </div>
     );
   }
 }
+
 function mapStateToProps(state) {
   return {
     sportType: state.content.sportType,
