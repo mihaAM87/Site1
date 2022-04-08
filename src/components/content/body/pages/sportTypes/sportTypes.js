@@ -25,13 +25,12 @@ class sportTypes extends Component {
     this.props.sportTypeInit(
       'sportTypes',
       this.state.sportType,
-      this.props.match.params.id
+      this.props.match.params.name
     );
   }
 
   render() {
     let { sportType } = this.props;
-    sportType = sportType || [];
 
     const navClass = [];
 

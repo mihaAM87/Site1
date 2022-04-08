@@ -27,7 +27,7 @@ class body extends Component {
     return (
       <div className={myBody.push(' ')}>
         <Switch>
-          <Route path="/sportTypes/:id" component={SportTypes} />
+          <Route path="/sportTypes/:name" component={SportTypes} />
           <Route path="/coaches" component={Coaches} />
           <Route path="/prices" component={Prices} />
           <Route path="/contacts" component={Contacts} />
