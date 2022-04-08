@@ -31,7 +31,7 @@ class coaches extends Component {
 
     const itemClass = [];
 
-    itemClass.push('col-md-4');
+    itemClass.push('col-sm-6 col-md-4');
 
     if (coachesArr && coachesArr.contents && coachesArr.contents.length > 0) {
       coachesArr = coachesArr.contents.map((element) => {

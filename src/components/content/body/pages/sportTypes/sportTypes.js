@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
+import { Transition } from 'react-transition-group';
 import PropTypes from 'prop-types';
 import classes from './sportTypes.module.scss';
 import { connect } from 'react-redux';
@@ -34,29 +35,32 @@ class sportTypes extends Component {
 
     const navClass = [];
 
-    navClass.push('row');
+    navClass.push('col-md-12');
     navClass.push('text-white');
     navClass.push(classes.mainContent);
 
     return (
-      <div className={navClass.join(' ')}>
-        {sportType && sportType?.img ? (
-          <div
-            style={{
-              backgroundImage:
-                'url(' +
-                IMG_DIRECTORY +
-                SPORTTYPES_IMGES_DIR +
-                sportType.img +
-                ')',
-            }}
-          >
-            <h2>{sportType.header}</h2>
-            <h3>{sportType.content}</h3>
-          </div>
-        ) : (
-          <br />
-        )}
+      <div className="row">
+        <div className={navClass.join(' ')}>
+          {sportType && sportType?.img ? (
+            <div
+              className={classes.mainContent}
+              style={{
+                backgroundImage:
+                  'url(' +
+                  IMG_DIRECTORY +
+                  SPORTTYPES_IMGES_DIR +
+                  sportType.img +
+                  ')',
+              }}
+            >
+              <h2>{sportType.header}</h2>
+              <h3>{sportType.content}</h3>
+            </div>
+          ) : (
+            <br />
+          )}
+        </div>
       </div>
     );
   }

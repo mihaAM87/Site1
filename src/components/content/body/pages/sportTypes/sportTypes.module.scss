@@ -1,6 +1,12 @@
 .mainContent {
-    height: 100%;
-    object-fit: fill;
-
+  min-height: 600px;
+  object-fit: fill;
 }
 
+.imageIndex {
+  z-index: 1;
+}
+
+.textIndex {
+  z-index: 2;
+}
