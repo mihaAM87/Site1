@@ -1,6 +1,8 @@
 .mainContent {
   min-height: 600px;
-  object-fit: fill;
+  object-fit: none;
+  height: 300px;
+  mask-repeat: no-repeat;
 }
 
 .imageIndex {

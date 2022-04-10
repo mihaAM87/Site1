@@ -29,7 +29,9 @@ class mainContent extends Component {
         <div className={mainClass.join(' ')}>
           <MainImage />
           <Carusel />
+
           <Body />
+
           <Footer />
         </div>
       </div>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect, BrowserRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import classes from './body.module.scss';
 import { connect } from 'react-redux';

@@ -21,7 +21,7 @@ class prices extends Component {
     pricesArr: [],
   };
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     this.props.pricesInit('prices', this.state.pricesArr);
   }
 

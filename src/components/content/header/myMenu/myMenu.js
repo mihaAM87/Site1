@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Navbar, Nav, NavDropdown, Container, NavItem } from 'react-bootstrap';
-import { Outlet, NavLink, Link } from 'react-router-dom';
+import { Outlet, NavLink, Link, BrowserRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import classes from './myMenu.module.scss';
 import { connect } from 'react-redux';
@@ -17,7 +17,7 @@ class myMenu extends Component {
     sportTypesArr: [],
   };
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     this.props.sportTypesInit('sportTypes', this.state.sportTypesArr);
   }
 

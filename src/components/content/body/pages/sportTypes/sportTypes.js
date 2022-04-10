@@ -21,13 +21,15 @@ class sportTypes extends Component {
     sportType: [],
   };
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     this.props.sportTypeInit(
       'sportTypes',
       this.state.sportType,
       this.props.match.params.name
     );
   }
+
+  componentDidMount() {}
 
   render() {
     let { sportType } = this.props;
@@ -36,32 +38,30 @@ class sportTypes extends Component {
 
     navClass.push('col-md-12');
     navClass.push('text-white');
-    navClass.push(classes.mainContent);
 
-    return (
-      <div className="row">
-        <div className={navClass.join(' ')}>
-          {sportType && sportType?.img ? (
-            <div
-              className={classes.mainContent}
-              style={{
-                backgroundImage:
-                  'url(' +
-                  IMG_DIRECTORY +
-                  SPORTTYPES_IMGES_DIR +
-                  sportType.img +
-                  ')',
-              }}
-            >
-              <h2>{sportType.header}</h2>
-              <h3>{sportType.content}</h3>
-            </div>
-          ) : (
-            <br />
-          )}
+    var mainItem = {};
+
+    if (sportType) {
+      mainItem = (
+        <div
+          className={classes.mainContent}
+          style={{
+            backgroundImage:
+              'url(' +
+              IMG_DIRECTORY +
+              SPORTTYPES_IMGES_DIR +
+              sportType.img +
+              ')',
+          }}
+        >
+          <h2>{sportType.header}</h2>
+          <h3>{sportType.content}</h3>
         </div>
-      </div>
-    );
+      );
+    } else {
+      mainItem = <br />;
+    }
+    return <div className={navClass.join(' ')}>{mainItem}</div>;
   }
 }
 

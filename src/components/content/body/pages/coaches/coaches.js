@@ -21,7 +21,7 @@ class coaches extends Component {
     coachesArr: [],
   };
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     this.props.coachesInit('coaches', this.state.coachesArr);
   }
 
