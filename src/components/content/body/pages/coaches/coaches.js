@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import classes from './coaches.module.scss';
 import { connect } from 'react-redux';
 import {
   IMG_DIRECTORY,
@@ -8,8 +7,6 @@ import {
 } from '../../../../../store/actions/content';
 import { fetchAllContentByType } from '../../../../../store/actions/contentSrc';
 import Card from 'react-bootstrap/Card';
-
-import Radium from 'radium';
 
 class coaches extends Component {
   static contextTypes = {

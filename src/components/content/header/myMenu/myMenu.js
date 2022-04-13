@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
-import { Navbar, Nav, NavDropdown, Container, NavItem } from 'react-bootstrap';
-import { Outlet, NavLink, Link, BrowserRouter } from 'react-router-dom';
+import { Navbar, Nav, NavDropdown, Container } from 'react-bootstrap';
+import { NavLink, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import classes from './myMenu.module.scss';
 import { connect } from 'react-redux';
 import { fetchAllContentByType } from '../../../../store/actions/contentSrc';
-import Radium from 'radium';
 
 class myMenu extends Component {
   static contextTypes = {
@@ -36,14 +34,8 @@ class myMenu extends Component {
       Link
     ) {
       sportTypesArr = sportTypesArr.contents.map((element) => {
-        let itemKey = Math.random();
         return (
-          <NavDropdown.Item
-            eventKey={itemKey}
-            key={itemKey}
-            as={Link}
-            to={'/sportTypes/' + element.name}
-          >
+          <NavDropdown.Item as={Link} to={'/sportTypes/' + element.name}>
             {element.header}
           </NavDropdown.Item>
         );

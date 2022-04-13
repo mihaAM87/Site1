@@ -2,14 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classes from './prices.module.scss';
 import { connect } from 'react-redux';
-import {
-  IMG_DIRECTORY,
-  COACHES_IMGES_DIR,
-} from '../../../../../store/actions/content';
 import { fetchAllContentByType } from '../../../../../store/actions/contentSrc';
 import Card from 'react-bootstrap/Card';
-
-import Radium from 'radium';
 
 class prices extends Component {
   static contextTypes = {

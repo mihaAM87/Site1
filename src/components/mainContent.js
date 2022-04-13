@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import classes from './mainContent.module.scss';
 import Header from './content/header/header';
 import MainImage from './content/mainImage/mainImage';

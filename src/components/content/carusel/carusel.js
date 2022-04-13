@@ -8,7 +8,6 @@ import {
   GROUPTYPES_IMGES_DIR,
 } from '../../../store/actions/content';
 import { fetchAllContentByType } from '../../../store/actions/contentSrc';
-import Radium from 'radium';
 
 class carusel extends Component {
   static contextTypes = {

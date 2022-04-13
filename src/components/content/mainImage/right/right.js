@@ -1,26 +1,28 @@
-import React, {Component} from 'react'
-import PropTypes from 'prop-types'
-import classes from './right.module.scss'
-import { connect } from 'react-redux'
-import {MAIN_IMG, IMG_DIRECTORY, MAIN_IMGES_DIR} from '../../../../store/actions/content'
-import Radium from 'radium'
+import React, { Component } from 'react';
+import classes from './right.module.scss';
+import {
+  MAIN_IMG,
+  IMG_DIRECTORY,
+  MAIN_IMGES_DIR,
+} from '../../../../store/actions/content';
 
 class right extends Component {
+  static contextTypes = {};
 
-    static contextTypes = {
+  render() {
+    const imgClass = [];
 
-    }
-
-     render() {
-        const imgClass = [];
-
-        imgClass.push(classes.mainImg);
-        return (
-            <div className='col-md-6'>
-                    <img src={IMG_DIRECTORY + MAIN_IMGES_DIR + MAIN_IMG} className={imgClass.join(' ')}></img>
-            </div>
-          )
-    }
+    imgClass.push(classes.mainImg);
+    return (
+      <div className="col-md-6">
+        <img
+          alt="Главное изображение"
+          src={IMG_DIRECTORY + MAIN_IMGES_DIR + MAIN_IMG}
+          className={imgClass.join(' ')}
+        ></img>
+      </div>
+    );
+  }
 }
 
-export default right
+export default right;

@@ -1,16 +1,12 @@
 import React, { Component } from 'react';
-import { Route, Switch, Redirect, BrowserRouter } from 'react-router-dom';
-import PropTypes from 'prop-types';
+import { Route, Switch } from 'react-router-dom';
 import classes from './body.module.scss';
 import { connect } from 'react-redux';
-import { IMG_DIRECTORY } from '../../../store/actions/content';
-import { fetchAllContentByType } from '../../../store/actions/contentSrc';
 import SportTypes from './pages/sportTypes/sportTypes';
 import Coaches from './pages/coaches/coaches';
 import Prices from './pages/prices/prices';
 import Contacts from './pages/contacts/contacts';
 import Home from './pages/home/home';
-import Radium from 'radium';
 
 class body extends Component {
   static contextTypes = {};

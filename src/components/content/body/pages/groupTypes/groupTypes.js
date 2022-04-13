@@ -1,45 +1,23 @@
-import React, {Component} from 'react'
-import PropTypes from 'prop-types'
-import classes from './groupTypes.module.scss'
-import { connect } from 'react-redux'
-import {IMG_DIRECTORY} from '../../../../../store/actions/content'
-import {fetchAllContentByType} from '../../../../../store/actions/contentSrc'
-
-import Radium from 'radium'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 class groupTypes extends Component {
+  static contextTypes = {};
 
-    static contextTypes = {
+  state = {};
 
-    }
+  componentWillMount() {}
 
-    state = {
-      
-    }
-
-    componentWillMount() {
-        
-    }
-
-     render() {
-
-         return (
-
-          <div>GroupTypes</div>
-            
-         )
-     }
+  render() {
+    return <div>GroupTypes</div>;
+  }
 }
 function mapStateToProps(state) {
-    return {
-        
-      }
-  }
-  
-  function mapDispatchToProps(dispatch) {
-    return {
-        
-    }
-  }
+  return {};
+}
 
-export default connect(mapStateToProps, mapDispatchToProps)(groupTypes)
+function mapDispatchToProps(dispatch) {
+  return {};
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(groupTypes);

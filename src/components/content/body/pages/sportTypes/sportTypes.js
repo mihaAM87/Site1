@@ -1,5 +1,4 @@
-import React, { Component, useState } from 'react';
-import { Transition } from 'react-transition-group';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classes from './sportTypes.module.scss';
 import { connect } from 'react-redux';
@@ -8,8 +7,6 @@ import {
   SPORTTYPES_IMGES_DIR,
 } from '../../../../../store/actions/content';
 import { fetchAllContentByType } from '../../../../../store/actions/contentSrc';
-
-import Radium from 'radium';
 
 class sportTypes extends Component {
   static contextTypes = {

@@ -4,7 +4,6 @@ import './index.css';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 import { createStore, applyMiddleware, compose } from 'redux';
-import contentReducer from './store/reducers/content';
 import { Provider } from 'react-redux';
 import rootReducer from './store/rootReducer';
 import reduxThunk from 'redux-thunk';

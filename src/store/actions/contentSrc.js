@@ -8,7 +8,6 @@ import {
   START,
   ERROR,
 } from './content';
-import axios from 'axios';
 
 import source from '../source/source.json';
 

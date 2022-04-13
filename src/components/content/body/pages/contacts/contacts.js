@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import classes from './contacts.module.scss';
 import { connect } from 'react-redux';
 import {
@@ -7,9 +6,6 @@ import {
   IMG_DIRECTORY,
   MAIN_IMGES_DIR,
 } from '../../../../../store/actions/content';
-import { fetchAllContentByType } from '../../../../../store/actions/contentSrc';
-
-import Radium from 'radium';
 
 class contacts extends Component {
   static contextTypes = {};
@@ -27,6 +23,7 @@ class contacts extends Component {
             <h3>
               <strong>Адрес: </strong>
               <img
+                alt="Знак Метрополитена"
                 src={IMG_DIRECTORY + MAIN_IMGES_DIR + METRO_IMG}
                 className={classes.metroImg}
               ></img>
