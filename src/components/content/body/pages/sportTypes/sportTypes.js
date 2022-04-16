@@ -7,21 +7,23 @@ import {
   SPORTTYPES_IMGES_DIR,
 } from '../../../../../store/actions/content';
 import { fetchAllContentByType } from '../../../../../store/actions/contentSrc';
+import Carusel from '../../../carusel/carusel';
+import Coaches from '../coaches/coaches';
 
 class sportTypes extends Component {
   static contextTypes = {
     type: PropTypes.string,
-    sportType: PropTypes.object,
+    sportTypeItem: PropTypes.object,
   };
 
   state = {
-    sportType: [],
+    sportTypeItem: [],
   };
 
   UNSAFE_componentWillMount() {
     this.props.sportTypeInit(
       'sportTypes',
-      this.state.sportType,
+      this.state.sportTypeItem,
       this.props.match.params.name
     );
   }
@@ -29,50 +31,61 @@ class sportTypes extends Component {
   componentDidMount() {}
 
   render() {
-    let { sportType } = this.props;
+    let { sportTypeItem } = this.props;
 
     const navClass = [];
 
-    navClass.push('col-md-12');
     navClass.push('text-white');
 
     var mainItem = {};
+    var sportTypeName = '';
 
-    if (sportType) {
-      mainItem = (
-        <div
-          className={classes.mainContent}
-          style={{
-            backgroundImage:
-              'url(' +
-              IMG_DIRECTORY +
-              SPORTTYPES_IMGES_DIR +
-              sportType.img +
-              ')',
-          }}
-        >
-          <h2>{sportType.header}</h2>
-          <h3>{sportType.content}</h3>
-        </div>
-      );
+    if (sportTypeItem) {
+      sportTypeName = sportTypeItem.name;
+      mainItem = () => {
+        return (
+          <div
+            className={classes.mainContent}
+            style={{
+              backgroundImage:
+                'url(' +
+                IMG_DIRECTORY +
+                SPORTTYPES_IMGES_DIR +
+                sportTypeItem.img +
+                ')',
+            }}
+          >
+            <h2>{sportTypeItem.header}</h2>
+            <h3>{sportTypeItem.content}</h3>
+          </div>
+        );
+      };
     } else {
-      mainItem = <br />;
+      mainItem = mainItem = () => {
+        return <br />;
+      };
     }
-    return <div className={navClass.join(' ')}>{mainItem}</div>;
+    return (
+      <div className="row">
+        <Carusel />
+        <div className={navClass.join(' ')}>{mainItem}</div>
+        <Coaches sportType={sportTypeName} />
+      </div>
+    );
   }
 }
 
 function mapStateToProps(state) {
   return {
-    sportType: state.content.sportType,
+    sportTypeItem: state.content.sportTypeItem,
     loading: state.content.loading,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    sportTypeInit: (type, sportType, id) =>
-      dispatch(fetchAllContentByType(type, sportType, id)),
+    sportTypeInit: (type, sportTypeItem, id) =>
+      dispatch(fetchAllContentByType(type, sportTypeItem, id)),
   };
 }
 

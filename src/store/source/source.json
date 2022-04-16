@@ -67,7 +67,7 @@
         "type": "coach",
         "name": "Yuri",
         "contents": {
-          "type": "content",
+          "type": "Kickboxing",
           "header": "Юрий",
           "content": "Преподаватель-организатор физического воспитания спорта «Донецкого национального университета».",
           "img": "Юрий.jpg"
@@ -77,7 +77,7 @@
         "type": "coach",
         "name": "Valery",
         "contents": {
-          "type": "content",
+          "type": "MMA",
           "header": "Валерий",
           "content": "Преподаёт больше практики",
           "img": "Валерий.jpg"
@@ -87,7 +87,7 @@
         "type": "coach",
         "name": "Cantemir",
         "contents": {
-          "type": "content",
+          "type": "Kickboxing",
           "header": "Кантемир",
           "content": "Преподаёт ОФП",
           "img": "Кантемир.webp"
@@ -97,7 +97,7 @@
         "type": "coach",
         "name": "Jackie_Chan",
         "contents": {
-          "type": "content",
+          "type": "Combat_wrestling",
           "header": "Джеки Чан",
           "content": "Работает у всей Земли Кумиром",
           "img": "Джеки_Чан.jpg"

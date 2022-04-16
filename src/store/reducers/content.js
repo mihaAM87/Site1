@@ -33,7 +33,7 @@ export default function contentReducer(state = initialState, action) {
       return {
         ...state,
         loading: false,
-        sportType: action.contentArr,
+        sportTypeItem: action.contentArr,
       };
     case LOAD_ALL_CONTENTS + GROUP_TYPES:
       return {

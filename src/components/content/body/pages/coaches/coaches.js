@@ -7,11 +7,13 @@ import {
 } from '../../../../../store/actions/content';
 import { fetchAllContentByType } from '../../../../../store/actions/contentSrc';
 import Card from 'react-bootstrap/Card';
+import Carusel from '../../../carusel/carusel';
 
 class coaches extends Component {
   static contextTypes = {
     type: PropTypes.string,
     coachesArr: PropTypes.array,
+    sportTypeName: PropTypes.string,
   };
 
   state = {
@@ -23,15 +25,23 @@ class coaches extends Component {
   }
 
   render() {
-    let { coachesArr } = this.props;
+    let { coachesArr, sportType } = this.props;
     coachesArr = coachesArr || [];
 
     const itemClass = [];
 
-    itemClass.push('col-sm-6 col-md-4');
+    itemClass.push('col-md-4');
 
-    if (coachesArr && coachesArr.contents && coachesArr.contents.length > 0) {
-      coachesArr = coachesArr.contents.map((element) => {
+    if (sportType && sportType != '') {
+      coachesArr = coachesArr?.contents?.find(
+        (item) => item.type.toLowerCase() === sportType?.toLowerCase()
+      );
+    } else {
+      coachesArr = coachesArr?.contents;
+    }
+
+    if (coachesArr && coachesArr.length > 0) {
+      coachesArr = coachesArr.map((element) => {
         let itemKey = Math.random();
         return (
           <div className={itemClass.join(' ')} key={itemKey}>
@@ -52,8 +62,12 @@ class coaches extends Component {
     }
 
     return (
-      <div className="conteiner">
-        <div className="row">{coachesArr}</div>
+      <div className="row">
+        {!sportType || sportType == '' ? <Carusel /> : <br />}
+
+        <div className="conteiner">
+          <div className="row">{coachesArr}</div>
+        </div>
       </div>
     );
   }

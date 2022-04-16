@@ -4,6 +4,7 @@ import classes from './prices.module.scss';
 import { connect } from 'react-redux';
 import { fetchAllContentByType } from '../../../../../store/actions/contentSrc';
 import Card from 'react-bootstrap/Card';
+import Carusel from '../../../carusel/carusel';
 
 class prices extends Component {
   static contextTypes = {
@@ -60,10 +61,13 @@ class prices extends Component {
     }
 
     return (
-      <div className="conteiner">
-        <div className="row">
-          <h1>Стоимость тренировок</h1>
-          {pricesArr}
+      <div className="row">
+        <Carusel />
+        <div className="conteiner">
+          <div className="row">
+            <h1>Стоимость тренировок</h1>
+            {pricesArr}
+          </div>
         </div>
       </div>
     );

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import classes from './mainContent.module.scss';
 import Header from './content/header/header';
 import MainImage from './content/mainImage/mainImage';
-import Carusel from './content/carusel/carusel';
 import Body from './content/body/body';
 import Footer from './content/footer/footer';
 
@@ -26,7 +25,6 @@ class mainContent extends Component {
         </div>
         <div className={mainClass.join(' ')}>
           <MainImage />
-          <Carusel />
 
           <Body />
 
