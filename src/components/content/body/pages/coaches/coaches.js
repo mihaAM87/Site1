@@ -33,8 +33,8 @@ class coaches extends Component {
     itemClass.push('col-md-4');
 
     if (sportType && sportType != '') {
-      coachesArr = coachesArr?.contents?.find(
-        (item) => item.type.toLowerCase() === sportType?.toLowerCase()
+      coachesArr = coachesArr?.contents?.filter(
+        (item) => item.contents.type.toLowerCase() === sportType?.toLowerCase()
       );
     } else {
       coachesArr = coachesArr?.contents;
@@ -66,7 +66,7 @@ class coaches extends Component {
         {!sportType || sportType == '' ? <Carusel /> : <br />}
 
         <div className="conteiner">
-          <div className="row">{coachesArr}</div>
+          <div className="row">{coachesArr ? coachesArr : <br />}</div>
         </div>
       </div>
     );

@@ -37,39 +37,30 @@ class sportTypes extends Component {
 
     navClass.push('text-white');
 
-    var mainItem = {};
-    var sportTypeName = '';
-
-    if (sportTypeItem) {
-      sportTypeName = sportTypeItem.name;
-      mainItem = () => {
-        return (
-          <div
-            className={classes.mainContent}
-            style={{
-              backgroundImage:
-                'url(' +
-                IMG_DIRECTORY +
-                SPORTTYPES_IMGES_DIR +
-                sportTypeItem.img +
-                ')',
-            }}
-          >
-            <h2>{sportTypeItem.header}</h2>
-            <h3>{sportTypeItem.content}</h3>
-          </div>
-        );
-      };
-    } else {
-      mainItem = mainItem = () => {
-        return <br />;
-      };
-    }
     return (
       <div className="row">
         <Carusel />
-        <div className={navClass.join(' ')}>{mainItem}</div>
-        <Coaches sportType={sportTypeName} />
+        <div className={navClass.join(' ')}>
+          {sportTypeItem ? (
+            <div
+              className={classes.mainContent}
+              style={{
+                backgroundImage:
+                  'url(' +
+                  IMG_DIRECTORY +
+                  SPORTTYPES_IMGES_DIR +
+                  sportTypeItem.img +
+                  ')',
+              }}
+            >
+              <h2>{sportTypeItem.header}</h2>
+              <h3>{sportTypeItem.content}</h3>
+            </div>
+          ) : (
+            <br />
+          )}
+        </div>
+        <Coaches sportType={sportTypeItem?.name} />
       </div>
     );
   }
