@@ -7,17 +7,21 @@ class modal extends Component {
     userName: PropTypes.string,
     userEmail: PropTypes.string,
     userPhone: PropTypes.string,
+    visible: PropTypes.bool,
   };
 
   state = {
     userName: '',
     userEmail: '',
     userPhone: '',
+    visible: false,
   };
 
   UNSAFE_componentWillMount() {}
+
   render() {
-    let { userName, userEmail, userPhone, onSend, onClose } = this.props;
+    let { userName, userEmail, userPhone, onSend, onClose, visible } =
+      this.props;
 
     // создаем обработчик нажатия клавиши Esc
     const onKeydown = (key) => {
@@ -72,7 +76,9 @@ class modal extends Component {
             </div>
           </div>
           <div className="modal-footer">
-            <button onClick={onSend}>Записаться</button>
+            <button onClick={onSend.bind(this, userName, userEmail, userPhone)}>
+              Записаться
+            </button>
             <button onClick={onClose}>Закрыть</button>
           </div>
         </div>
@@ -86,6 +92,7 @@ function mapStateToProps(state) {
     userName: state.content.userName,
     userEmail: state.content.userEmail,
     userPhone: state.content.userPhone,
+    visible: state.content.visible,
   };
 }
 
@@ -93,6 +100,7 @@ function mapDispatchToProps(dispatch) {
   return {
     onSend: (userName, userEmail, userPhone) =>
       dispatch(onSend(userName, userEmail, userPhone)),
+    onClose: () => this.setState({ visible: false }),
   };
 }
 

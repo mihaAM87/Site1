@@ -8,10 +8,15 @@ import {
   IMG_DIRECTORY,
   MAIN_IMGES_DIR,
 } from '../../../../store/actions/content';
-import Modal from '../../modal';
 
 class caption extends Component {
-  static contextTypes = {};
+  static contextTypes = {
+    visibleModel: PropTypes.bool,
+  };
+
+  state = {
+    visibleModel: false,
+  };
 
   render() {
     let mainClass = [];
@@ -50,13 +55,15 @@ class caption extends Component {
               </div>
             </div>
             <div className="col-md-2">
-              <button className="form-control btn btn-dark">
+              <button
+                className="form-control btn btn-dark"
+                onClick={this.setState({ visibleModel: true })}
+              >
                 Заказать Звонок
               </button>
             </div>
             <div className="col-md-1"></div>
           </div>
-          <Modal />
         </div>
       </div>
     );

@@ -3,7 +3,13 @@ import classes from './left.module.scss';
 import { Link } from 'react-router-dom';
 
 class left extends Component {
-  static contextTypes = {};
+  static contextTypes = {
+    visibleModel: PropTypes.bool,
+  };
+
+  state = {
+    visibleModel: false,
+  };
 
   render() {
     const mainClass = [];
@@ -25,14 +31,17 @@ class left extends Component {
           </h2>
           <div className="row d-flex justify-content-start col-md-12">
             <div className="col-md-6">
-              <button type="button" className="btn btn-light">
+              <button
+                type="button"
+                className="btn btn-light"
+                onClick={this.setState({ visibleModel: true })}
+              >
                 Записаться
               </button>
             </div>
             <div className="col-md-6 text-white">
               <Link to="/coaches">Тренеры</Link>
             </div>
-            н
           </div>
         </div>
       </div>
