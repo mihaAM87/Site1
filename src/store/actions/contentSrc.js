@@ -7,6 +7,7 @@ import {
   PRICES,
   START,
   ERROR,
+  SEND_USER_INFO,
 } from './content';
 
 import source from '../source/source.json';
@@ -43,6 +44,15 @@ export function getGroupTypesContent(contentArr) {
   return {
     type: LOAD_ALL_CONTENTS + GROUP_TYPES,
     contentArr,
+  };
+}
+
+export function onSendContent(userName, userEmail, userPhone) {
+  return {
+    type: SEND_USER_INFO,
+    userName,
+    userEmail,
+    userPhone,
   };
 }
 
@@ -93,6 +103,18 @@ export function fetchAllContentByType(type, contentArr, name = null) {
           break;
         }
       }
+    } catch (e) {
+      dispatch(fetchContentError(e));
+    }
+  };
+}
+
+export function onSend(userName, userEmail, userPhone) {
+  return async (dispatch) => {
+    dispatch(fetchContentStart());
+
+    try {
+      dispatch(onSendContent(userName, userEmail, userPhone));
     } catch (e) {
       dispatch(fetchContentError(e));
     }

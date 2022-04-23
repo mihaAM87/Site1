@@ -8,6 +8,7 @@ import {
   IMG_DIRECTORY,
   MAIN_IMGES_DIR,
 } from '../../../../store/actions/content';
+import Modal from '../../modal';
 
 class caption extends Component {
   static contextTypes = {};
@@ -55,6 +56,7 @@ class caption extends Component {
             </div>
             <div className="col-md-1"></div>
           </div>
+          <Modal />
         </div>
       </div>
     );

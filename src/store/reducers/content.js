@@ -1,3 +1,4 @@
+import { act } from '@testing-library/react';
 import {
   LOAD_ALL_CONTENTS,
   SPORT_TYPES,
@@ -7,6 +8,7 @@ import {
   PRICES,
   START,
   ERROR,
+  SEND_USER_INFO,
 } from '../actions/content';
 
 const initialState = {
@@ -58,6 +60,14 @@ export default function contentReducer(state = initialState, action) {
         ...state,
         loading: false,
         error: action.error,
+      };
+    case SEND_USER_INFO:
+      return {
+        ...state,
+        loading: false,
+        userName: action.userName,
+        userEmail: action.userEmail,
+        userPhone: action.userPhone,
       };
     default:
       return state;
