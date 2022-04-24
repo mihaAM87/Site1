@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import classes from './left.module.scss';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { onOpen } from '../../../../store/actions/contentSrc';
 
 class left extends Component {
   static contextTypes = {
@@ -31,11 +33,7 @@ class left extends Component {
           </h2>
           <div className="row d-flex justify-content-start col-md-12">
             <div className="col-md-6">
-              <button
-                type="button"
-                className="btn btn-light"
-                onClick={this.setState({ visibleModel: true })}
-              >
+              <button type="button" className="btn btn-light" onClick={onOpen}>
                 Записаться
               </button>
             </div>

@@ -8,6 +8,8 @@ import {
   START,
   ERROR,
   SEND_USER_INFO,
+  OPEN_MODAL_VIEW,
+  CLOSE_MODAL_VIEW,
 } from './content';
 
 import source from '../source/source.json';
@@ -70,6 +72,18 @@ export function getPricesContent(contentArr) {
   };
 }
 
+export function onOpenContent() {
+  return {
+    type: OPEN_MODAL_VIEW,
+  };
+}
+
+export function onCloseContent() {
+  return {
+    type: CLOSE_MODAL_VIEW,
+  };
+}
+
 export function fetchAllContentByType(type, contentArr, name = null) {
   return async (dispatch) => {
     dispatch(fetchContentStart());
@@ -115,6 +129,31 @@ export function onSend(userName, userEmail, userPhone) {
 
     try {
       dispatch(onSendContent(userName, userEmail, userPhone));
+      dispatch(onClose());
+    } catch (e) {
+      dispatch(fetchContentError(e));
+    }
+  };
+}
+
+export function onOpen() {
+  return async (dispatch) => {
+    dispatch(fetchContentStart());
+
+    try {
+      dispatch(onOpenContent());
+    } catch (e) {
+      dispatch(fetchContentError(e));
+    }
+  };
+}
+
+export function onClose() {
+  return async (dispatch) => {
+    dispatch(fetchContentStart());
+
+    try {
+      dispatch(onCloseContent());
     } catch (e) {
       dispatch(fetchContentError(e));
     }

@@ -1,6 +1,8 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Form } from 'react-bootstrap';
+import { onClose, onSend } from '../../../store/actions/contentSrc';
+import { connect } from 'react-redux';
 
 class modal extends Component {
   static contextTypes = {
@@ -14,7 +16,6 @@ class modal extends Component {
     userName: '',
     userEmail: '',
     userPhone: '',
-    visible: false,
   };
 
   UNSAFE_componentWillMount() {}
@@ -34,10 +35,10 @@ class modal extends Component {
 
     // c помощью useEffect цепляем обработчик к нажатию клавиш
     // https://ru.reactjs.org/docs/hooks-effect.html
-    React.useEffect(() => {
-      document.addEventListener('keydown', onKeydown);
-      return () => document.removeEventListener('keydown', onKeydown);
-    });
+    // React.useEffect(() => {
+    //   document.addEventListener('keydown', onKeydown);
+    //   return () => document.removeEventListener('keydown', onKeydown);
+    // });
 
     // если компонент невидим, то не отображаем его
     if (!visible) return null;
@@ -100,7 +101,8 @@ function mapDispatchToProps(dispatch) {
   return {
     onSend: (userName, userEmail, userPhone) =>
       dispatch(onSend(userName, userEmail, userPhone)),
-    onClose: () => this.setState({ visible: false }),
+    onClose: dispatch(onClose()),
+    onOpen: dispatch(onOpen()),
   };
 }
 

@@ -8,6 +8,8 @@ import {
   IMG_DIRECTORY,
   MAIN_IMGES_DIR,
 } from '../../../../store/actions/content';
+import PropTypes from 'prop-types';
+import { onOpen } from '../../../../store/actions/contentSrc';
 
 class caption extends Component {
   static contextTypes = {
@@ -55,10 +57,7 @@ class caption extends Component {
               </div>
             </div>
             <div className="col-md-2">
-              <button
-                className="form-control btn btn-dark"
-                onClick={this.setState({ visibleModel: true })}
-              >
+              <button className="form-control btn btn-dark" onClick={onOpen}>
                 Заказать Звонок
               </button>
             </div>

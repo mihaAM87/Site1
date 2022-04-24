@@ -9,6 +9,8 @@ import {
   START,
   ERROR,
   SEND_USER_INFO,
+  OPEN_MODAL_VIEW,
+  CLOSE_MODAL_VIEW,
 } from '../actions/content';
 
 const initialState = {
@@ -16,6 +18,7 @@ const initialState = {
   error: null,
   results: {},
   isFinished: false,
+  visibleModel: false,
 };
 
 export default function contentReducer(state = initialState, action) {
@@ -60,6 +63,18 @@ export default function contentReducer(state = initialState, action) {
         ...state,
         loading: false,
         error: action.error,
+      };
+    case OPEN_MODAL_VIEW:
+      return {
+        ...state,
+        loading: false,
+        visibleModel: true,
+      };
+    case CLOSE_MODAL_VIEW:
+      return {
+        ...state,
+        loading: false,
+        visibleModel: false,
       };
     case SEND_USER_INFO:
       return {

@@ -4,7 +4,8 @@ import Header from './content/header/header';
 import MainImage from './content/mainImage/mainImage';
 import Body from './content/body/body';
 import Footer from './content/footer/footer';
-import Modal from '../../modal';
+import Modal from './content/modal/modal';
+import PropTypes from 'prop-types';
 
 class mainContent extends Component {
   static contextTypes = {
@@ -12,7 +13,7 @@ class mainContent extends Component {
   };
 
   state = {
-    visibleModel: false,
+    visibleModel: true,
   };
 
   render() {
@@ -36,7 +37,7 @@ class mainContent extends Component {
           <Body />
 
           <Footer />
-          <Modal visible={this.state.visible} />
+          <Modal visible={this.state.visibleModel} />
         </div>
       </div>
     );
