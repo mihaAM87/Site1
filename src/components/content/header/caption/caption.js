@@ -10,6 +10,7 @@ import {
 } from '../../../../store/actions/content';
 import PropTypes from 'prop-types';
 import { onOpen } from '../../../../store/actions/contentSrc';
+import { connect } from 'react-redux';
 
 class caption extends Component {
   static contextTypes = {

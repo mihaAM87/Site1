@@ -3,6 +3,7 @@ import classes from './left.module.scss';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { onOpen } from '../../../../store/actions/contentSrc';
+import { connect } from 'react-redux';
 
 class left extends Component {
   static contextTypes = {};

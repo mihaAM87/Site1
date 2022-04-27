@@ -48,11 +48,7 @@ class myMenu extends Component {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-              <NavDropdown
-                as={NavLink}
-                title="Виды спорта"
-                id="basic-nav-dropdown"
-              >
+              <NavDropdown title="Виды спорта" id="basic-nav-dropdown">
                 {sportTypesArr}
               </NavDropdown>
               <Nav.Link as={NavLink} to="/prices">

@@ -6,6 +6,7 @@ import Body from './content/body/body';
 import Footer from './content/footer/footer';
 import Modal from './content/modal/modal';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 class mainContent extends Component {
   static contextTypes = {
