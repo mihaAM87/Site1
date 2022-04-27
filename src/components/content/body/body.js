@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import classes from './body.module.scss';
 import { connect } from 'react-redux';
 import SportTypes from './pages/sportTypes/sportTypes';
@@ -22,13 +22,13 @@ class body extends Component {
 
     return (
       <div className={myBody.push(' ')}>
-        <Switch>
-          <Route path="/sportTypes/:name" component={SportTypes} />
-          <Route path="/coaches" component={Coaches} />
-          <Route path="/prices" component={Prices} />
-          <Route path="/contacts" component={Contacts} />
-          <Route path="/" component={Home} />
-        </Switch>
+        <Routes>
+          <Route path="/sportTypes/:name" element={<SportTypes />} />
+          <Route path="/coaches" element={<Coaches />} />
+          <Route path="/prices" element={<Prices />} />
+          <Route path="/contacts" element={<Contacts />} />
+          <Route path="/" element={<Home />} />
+        </Routes>
       </div>
     );
   }

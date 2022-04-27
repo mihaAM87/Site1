@@ -5,13 +5,9 @@ import PropTypes from 'prop-types';
 import { onOpen } from '../../../../store/actions/contentSrc';
 
 class left extends Component {
-  static contextTypes = {
-    visibleModel: PropTypes.bool,
-  };
+  static contextTypes = {};
 
-  state = {
-    visibleModel: false,
-  };
+  state = {};
 
   render() {
     const mainClass = [];
@@ -33,7 +29,11 @@ class left extends Component {
           </h2>
           <div className="row d-flex justify-content-start col-md-12">
             <div className="col-md-6">
-              <button type="button" className="btn btn-light" onClick={onOpen}>
+              <button
+                type="button"
+                className="btn btn-light"
+                onClick={this.onOpen}
+              >
                 Записаться
               </button>
             </div>
@@ -47,4 +47,14 @@ class left extends Component {
   }
 }
 
-export default left;
+function mapStateToProps(state) {
+  return {};
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    onOpen: () => dispatch(onOpen()),
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(left);

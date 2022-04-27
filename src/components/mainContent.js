@@ -13,10 +13,11 @@ class mainContent extends Component {
   };
 
   state = {
-    visibleModel: true,
+    visibleModel: false,
   };
 
   render() {
+    let { visibleModel } = this.props;
     let mainClass = [];
     let headerClass = [];
 
@@ -37,11 +38,22 @@ class mainContent extends Component {
           <Body />
 
           <Footer />
-          <Modal visible={this.state.visibleModel} />
+          <Modal visible={visibleModel} />
         </div>
       </div>
     );
   }
 }
 
-export default mainContent;
+function mapStateToProps(state) {
+  return {
+    visibleModel: state.content.visibleModel,
+    loading: state.content.loading,
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {};
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(mainContent);

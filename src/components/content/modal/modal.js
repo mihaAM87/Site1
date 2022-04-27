@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Form } from 'react-bootstrap';
-import { onClose, onSend } from '../../../store/actions/contentSrc';
+import { onOpen, onClose, onSend } from '../../../store/actions/contentSrc';
 import { connect } from 'react-redux';
 
 class modal extends Component {

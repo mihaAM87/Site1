@@ -35,7 +35,7 @@ class myMenu extends Component {
     ) {
       sportTypesArr = sportTypesArr.contents.map((element) => {
         return (
-          <NavDropdown.Item as={Link} to={'/sportTypes/' + element.name}>
+          <NavDropdown.Item as={NavLink} to={'/sportTypes/' + element.name}>
             {element.header}
           </NavDropdown.Item>
         );
@@ -49,7 +49,7 @@ class myMenu extends Component {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
               <NavDropdown
-                as={Link}
+                as={NavLink}
                 title="Виды спорта"
                 id="basic-nav-dropdown"
               >

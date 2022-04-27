@@ -57,7 +57,10 @@ class caption extends Component {
               </div>
             </div>
             <div className="col-md-2">
-              <button className="form-control btn btn-dark" onClick={onOpen}>
+              <button
+                className="form-control btn btn-dark"
+                onClick={this.onOpen}
+              >
                 Заказать Звонок
               </button>
             </div>
@@ -69,4 +72,14 @@ class caption extends Component {
   }
 }
 
-export default caption;
+function mapStateToProps(state) {
+  return {};
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    onOpen: () => dispatch(onOpen()),
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(caption);
