@@ -14,10 +14,12 @@ class coaches extends Component {
     type: PropTypes.string,
     coachesArr: PropTypes.array,
     sportTypeName: PropTypes.string,
+    sportType: PropTypes.string,
   };
 
   state = {
     coachesArr: [],
+    sportType: null,
   };
 
   UNSAFE_componentWillMount() {

@@ -21,14 +21,14 @@ class sportTypes extends Component {
   };
 
   UNSAFE_componentWillMount() {
-    this.props.sportTypeInit(
-      'sportTypes',
-      this.state.sportTypeItem,
-      this.props.match.params.name
-    );
+    if (this.props.match?.params) {
+      this.props.sportTypeInit(
+        'sportTypes',
+        this.state.sportTypeItem,
+        this.props.match.params.name
+      );
+    }
   }
-
-  componentDidMount() {}
 
   render() {
     let { sportTypeItem } = this.props;
