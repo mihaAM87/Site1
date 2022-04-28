@@ -1,7 +1,7 @@
-import React, { useReducer } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classes from './sportTypes.module.scss';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useStore } from 'react-redux';
 import {
   IMG_DIRECTORY,
   SPORTTYPES_IMGES_DIR,
@@ -12,12 +12,13 @@ import Coaches from '../coaches/coaches';
 import { useParams } from 'react-router-dom';
 
 export default function SportTypes() {
-  const params = useParams();
   const dispatch = useDispatch();
+  const params = useParams();
+  const store = useStore();
 
-  const [sportTypeItem, setSportTypeItem] = useReducer(() => {
-    dispatch(fetchAllContentByType('sportTypes', params.name));
-  });
+  dispatch(fetchAllContentByType('sportTypes', params.name));
+
+  let { sportTypeItem } = store.getState().content;
 
   const navClass = [];
 

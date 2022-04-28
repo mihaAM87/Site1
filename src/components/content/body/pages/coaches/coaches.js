@@ -23,7 +23,7 @@ class coaches extends Component {
   };
 
   UNSAFE_componentWillMount() {
-    this.props.coachesInit('coaches', this.state.coachesArr);
+    this.props.coachesInit('coaches');
   }
 
   render() {
@@ -56,6 +56,13 @@ class coaches extends Component {
                 <Card.Title>{element.contents.header}</Card.Title>
                 <Card.Text>{element.contents.content}</Card.Text>
                 {/* <Button variant="primary">Go somewhere</Button> */}
+                <button
+                  className="form-control btn btn-primary"
+                  variant="primary"
+                  onClick={this.onOpen}
+                >
+                  Записаться
+                </button>
               </Card.Body>
             </Card>
           </div>
