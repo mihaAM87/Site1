@@ -83,8 +83,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    coachesInit: (type, coachesArr) =>
-      dispatch(fetchAllContentByType(type, coachesArr)),
+    coachesInit: (type, coachesArr) => dispatch(fetchAllContentByType(type)),
   };
 }
 

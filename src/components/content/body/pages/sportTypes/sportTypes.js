@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React, { useReducer } from 'react';
 import PropTypes from 'prop-types';
 import classes from './sportTypes.module.scss';
-import { connect } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import {
   IMG_DIRECTORY,
   SPORTTYPES_IMGES_DIR,
@@ -9,75 +9,44 @@ import {
 import { fetchAllContentByType } from '../../../../../store/actions/contentSrc';
 import Carusel from '../../../carusel/carusel';
 import Coaches from '../coaches/coaches';
+import { useParams } from 'react-router-dom';
 
-class sportTypes extends Component {
-  static contextTypes = {
-    type: PropTypes.string,
-    sportTypeItem: PropTypes.object,
-  };
+export default function SportTypes() {
+  const params = useParams();
+  const dispatch = useDispatch();
 
-  state = {
-    sportTypeItem: [],
-  };
+  const [sportTypeItem, setSportTypeItem] = useReducer(() => {
+    dispatch(fetchAllContentByType('sportTypes', params.name));
+  });
 
-  UNSAFE_componentWillMount() {
-    if (this.props.match?.params) {
-      this.props.sportTypeInit(
-        'sportTypes',
-        this.state.sportTypeItem,
-        this.props.match.params.name
-      );
-    }
-  }
+  const navClass = [];
 
-  render() {
-    let { sportTypeItem } = this.props;
+  navClass.push('text-white');
 
-    const navClass = [];
-
-    navClass.push('text-white');
-
-    return (
-      <div className="row">
-        <Carusel />
+  return (
+    <div className="row">
+      <Carusel />
+      {sportTypeItem ? (
         <div className={navClass.join(' ')}>
-          {sportTypeItem ? (
-            <div
-              className={classes.mainContent}
-              style={{
-                backgroundImage:
-                  'url(' +
-                  IMG_DIRECTORY +
-                  SPORTTYPES_IMGES_DIR +
-                  sportTypeItem.img +
-                  ')',
-              }}
-            >
-              <h2>{sportTypeItem.header}</h2>
-              <h3>{sportTypeItem.content}</h3>
-            </div>
-          ) : (
-            <br />
-          )}
+          <div
+            className={classes.mainContent}
+            style={{
+              backgroundImage:
+                'url(' +
+                IMG_DIRECTORY +
+                SPORTTYPES_IMGES_DIR +
+                sportTypeItem.img +
+                ')',
+            }}
+          >
+            <h2>{sportTypeItem.header}</h2>
+            <h3>{sportTypeItem.content}</h3>
+          </div>
+          <Coaches sportType={sportTypeItem?.name} />
         </div>
-        <Coaches sportType={sportTypeItem?.name} />
-      </div>
-    );
-  }
+      ) : (
+        <br />
+      )}
+    </div>
+  );
 }
-
-function mapStateToProps(state) {
-  return {
-    sportTypeItem: state.content.sportTypeItem,
-    loading: state.content.loading,
-  };
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    sportTypeInit: (type, sportTypeItem, id) =>
-      dispatch(fetchAllContentByType(type, sportTypeItem, id)),
-  };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(sportTypes);

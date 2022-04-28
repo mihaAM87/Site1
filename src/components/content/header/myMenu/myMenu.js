@@ -78,7 +78,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     sportTypesInit: (type, sportTypesArr) =>
-      dispatch(fetchAllContentByType(type, sportTypesArr)),
+      dispatch(fetchAllContentByType(type)),
   };
 }
 

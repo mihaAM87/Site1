@@ -82,8 +82,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    pricesInit: (type, pricesArr) =>
-      dispatch(fetchAllContentByType(type, pricesArr)),
+    pricesInit: (type, pricesArr) => dispatch(fetchAllContentByType(type)),
   };
 }
 

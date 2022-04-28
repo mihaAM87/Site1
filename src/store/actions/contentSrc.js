@@ -84,12 +84,12 @@ export function onCloseContent() {
   };
 }
 
-export function fetchAllContentByType(type, contentArr, name = null) {
+export function fetchAllContentByType(type, name = null) {
   return async (dispatch) => {
     dispatch(fetchContentStart());
 
     try {
-      contentArr = source;
+      let contentArr = source;
 
       contentArr = contentArr.find((item) => item.type === type);
 

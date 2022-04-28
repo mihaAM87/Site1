@@ -75,7 +75,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     groupTypesInit: (type, groupTypesArr) =>
-      dispatch(fetchAllContentByType(type, groupTypesArr)),
+      dispatch(fetchAllContentByType(type)),
   };
 }
 
