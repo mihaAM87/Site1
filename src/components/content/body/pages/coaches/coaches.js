@@ -44,17 +44,18 @@ class coaches extends Component {
 
     if (coachesArr && coachesArr.length > 0) {
       coachesArr = coachesArr.map((element) => {
+        let elementContents = element.contents;
         let itemKey = Math.random();
         return (
           <div className={itemClass.join(' ')} key={itemKey}>
             <Card>
               <Card.Img
                 variant="top"
-                src={IMG_DIRECTORY + COACHES_IMGES_DIR + element.contents.img}
+                src={IMG_DIRECTORY + COACHES_IMGES_DIR + elementContents.img}
               />
               <Card.Body>
-                <Card.Title>{element.contents.header}</Card.Title>
-                <Card.Text>{element.contents.content}</Card.Text>
+                <Card.Title>{elementContents.header}</Card.Title>
+                <Card.Text>{elementContents.content}</Card.Text>
                 {/* <Button variant="primary">Go somewhere</Button> */}
                 <button
                   className="form-control btn btn-primary"

@@ -58,6 +58,18 @@ export default function contentReducer(state = initialState, action) {
         loading: false,
         pricesArr: action.contentArr,
       };
+    case LOAD_ALL_CONTENTS + SCHEDULE:
+      return {
+        ...state,
+        loading: false,
+        schedule: action.contentArr,
+      };
+    case LOAD_ALL_CONTENTS + SESSIONS:
+      return {
+        ...state,
+        loading: false,
+        sessions: action.contentArr,
+      };
     case LOAD_ALL_CONTENTS + ERROR:
       return {
         ...state,

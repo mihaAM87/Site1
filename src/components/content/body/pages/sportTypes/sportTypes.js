@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useReducer } from 'react';
 import PropTypes from 'prop-types';
 import classes from './sportTypes.module.scss';
 import { useDispatch, useStore } from 'react-redux';
@@ -17,8 +17,16 @@ export default function SportTypes() {
   const store = useStore();
 
   dispatch(fetchAllContentByType('sportTypes', params.name));
+  let sportTypeItem = store.getState().content.sportTypeItem;
 
-  let { sportTypeItem } = store.getState().content;
+  // let [sportTypeItem, setSportTypeItem] = useReducer(() => {
+  //   dispatch(fetchAllContentByType('sportTypes', params.name));
+  //   return store.getState().content.sportTypeItem;
+  // });
+
+  // if (!sportTypeItem) {
+  //   setSportTypeItem();
+  // }
 
   const navClass = [];
 
@@ -43,10 +51,10 @@ export default function SportTypes() {
             <h2>{sportTypeItem.header}</h2>
             <h3>{sportTypeItem.content}</h3>
           </div>
-          <Coaches sportType={sportTypeItem?.name} />
+          <Coaches sportType={sportTypeItem.name} />
         </div>
       ) : (
-        <br />
+        <Coaches sportType={''} />
       )}
     </div>
   );

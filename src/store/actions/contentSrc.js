@@ -84,6 +84,20 @@ export function onCloseContent() {
   };
 }
 
+export function getScheduleContent(contentArr) {
+  return {
+    type: LOAD_ALL_CONTENTS + SCHEDULE,
+    contentArr,
+  };
+}
+
+export function getSessionsContent(contentArr) {
+  return {
+    type: LOAD_ALL_CONTENTS + SESSIONS,
+    contentArr,
+  };
+}
+
 export function fetchAllContentByType(type, name = null) {
   return async (dispatch) => {
     dispatch(fetchContentStart());
@@ -114,6 +128,14 @@ export function fetchAllContentByType(type, name = null) {
         }
         case 'prices': {
           dispatch(getPricesContent(contentArr));
+          break;
+        }
+        case 'schedule': {
+          dispatch(getScheduleContent(contentArr));
+          break;
+        }
+        case 'sessions': {
+          dispatch(getSessionsContent(contentArr));
           break;
         }
       }
