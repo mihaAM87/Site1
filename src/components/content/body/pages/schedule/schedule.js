@@ -10,6 +10,7 @@ import { fetchAllContentByType } from '../../../../../store/actions/contentSrc';
 import Carusel from '../../../carusel/carusel';
 import Coaches from '../coaches/coaches';
 import { useParams } from 'react-router-dom';
+import Table from 'react-bootstrap/Table';
 
 export default function schedule() {
   const dispatch = useDispatch();
