@@ -17,25 +17,28 @@ export default function Schedule() {
   dispatch(fetchAllContentByType('coaches'));
   let { scheduleArr, sessionArr, coachesArr } = store.getState().content;
 
-  let tableHead = scheduleArr.contents[0].map(function (item, index, array) {
-    return <th>scheduleArr.contents.name</th>;
+  let tableHead = scheduleArr.contents[0].contents.map(function (
+    item,
+    index,
+    array
+  ) {
+    return <th>{item.name}</th>;
   });
 
   let tableBody = scheduleArr.contents.map(function (item, index, array) {
-    let currentSessionArr = sessionArr.filter((k) =>
-      item.content.sessionArr.find((x) => x.sessionsId === k.contents.id)
-    );
-
-    let currentCoacheArr = coachesArr.filter((k) =>
-      array.contents.find((x) => x.content.sessionArr.includes(k.id))
-    );
-
     return (
       <tr>
         <td>
           {item.from} - {item.to}
         </td>
         {item.contents.map(function (item, index, array) {
+          let currentSessionArr = sessionArr.contents.filter((k) =>
+            item.content.sessions.find((x) => x.sessionsIds.includes(k.id))
+          );
+          let currentCoacheArr = coachesArr.contents.filter((k) =>
+            item.content.sessions.find((x) => x.coachesIds.includes(k.id))
+          );
+
           return (
             <td>
               {currentSessionArr.map((x) => x.name).join(' / ')}
@@ -58,7 +61,7 @@ export default function Schedule() {
       <div className={navClass.join(' ')}>
         <h1 className="col-md-2">Расписание занятий</h1>
         <div className="row">
-          <Table striped bordered hover>
+          <Table striped bordered hover className={classes.mainTable}>
             <thead>
               <tr>
                 <th>Время</th>

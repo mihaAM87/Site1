@@ -5,7 +5,7 @@
       {
         "type": "item",
         "name": "Box",
-        "id": "1",
+        "id": 1,
         "img": "Бокс.jpeg",
         "header": "Бокс",
         "content": "Бокс (от фр. boxe — «бокс» и boxeur — «боксёр», которые происходят от англ. to box — «драться на ринге», «боксировать», или же непосредственно из англ. boxing, to box, происходящих, видимо, от англ. box — «коробка», «ящик», «ринг») "
@@ -13,7 +13,7 @@
       {
         "type": "item",
         "name": "Kickboxing",
-        "id": "2",
+        "id": 2,
         "img": "Кикбоксинг.jpg",
         "header": "Кикбоксинг",
         "content": "Кикбо́ксинг (от kick — с англ. — «удар ногой»; boxing — «бокс»)"
@@ -21,7 +21,7 @@
       {
         "type": "item",
         "name": "Thai_Boxing",
-        "id": "3",
+        "id": 3,
         "img": "Thai_Boxing.jpeg",
         "header": "Тайский бокс",
         "content": "Тайский бокс, или муай-тай (тайск. มวยไทย)"
@@ -29,7 +29,7 @@
       {
         "type": "item",
         "name": "MMA",
-        "id": "4",
+        "id": 4,
         "img": "ММА.jpg",
         "header": "ММА",
         "content": "ММА — Mixed Martial Arts, англоязычный акроним, обозначающий смешанные боевые искусства."
@@ -37,7 +37,7 @@
       {
         "type": "item",
         "name": "Sambo",
-        "id": "5",
+        "id": 5,
         "img": "Самбо.jpeg",
         "header": "Самбо",
         "content": "Са́мбо (акроним — самозащита без оружия)"
@@ -45,7 +45,7 @@
       {
         "type": "item",
         "name": "Combat_Sambo",
-        "id": "6",
+        "id": 6,
         "img": "Боевое_Самбо.jpg",
         "header": "Боевое Самбо",
         "content": "Боевое Са́мбо (акроним — самозащита без оружия)"
@@ -53,7 +53,7 @@
       {
         "type": "item",
         "name": "Judo",
-        "id": "7",
+        "id": 7,
         "img": "Дзюдо.jpg",
         "header": "Дзюдо",
         "content": "Дзюдо́ (яп. 柔道 дзю: до:, дословно — «Мягкий путь»; в России также часто используется вариант перевода «Гибкий путь») "
@@ -61,7 +61,7 @@
       {
         "type": "item",
         "name": "Combat_wrestling",
-        "id": "8",
+        "id": 8,
         "img": "Боевая_борьба.jpg",
         "header": "Боевая борьба",
         "content": "Борьба́ — единоборство, рукопашная схватка двух людей, в которой каждый старается осилить другого, свалив его с ног"
@@ -73,7 +73,7 @@
     "contents": [
       {
         "type": "coach",
-        "id": "1",
+        "id": 1,
         "name": "Yuri",
         "content": {
           "type": "Kickboxing",
@@ -84,7 +84,7 @@
       },
       {
         "type": "coach",
-        "id": "2",
+        "id": 2,
         "name": "Valery",
         "content": {
           "type": "MMA",
@@ -95,7 +95,7 @@
       },
       {
         "type": "coach",
-        "id": "3",
+        "id": 3,
         "name": "Cantemir",
         "content": {
           "type": "Kickboxing",
@@ -107,7 +107,7 @@
       {
         "type": "coach",
         "name": "Jackie_Chan",
-        "id": "4",
+        "id": 4,
         "content": {
           "type": "Combat_wrestling",
           "header": "Джеки Чан",
@@ -123,7 +123,7 @@
       {
         "type": "group",
         "name": "women",
-        "id": "1",
+        "id": 1,
         "content": {
           "type": "content",
           "header": "Женщины",
@@ -134,7 +134,7 @@
       {
         "type": "group",
         "name": "beginners",
-        "id": "2",
+        "id": 2,
         "content": {
           "type": "content",
           "header": "Новички",
@@ -145,7 +145,7 @@
       {
         "type": "group",
         "name": "children",
-        "id": "3",
+        "id": 3,
         "content": {
           "type": "content",
           "header": "Дети",
@@ -156,7 +156,7 @@
       {
         "type": "group",
         "name": "experienced",
-        "id": "4",
+        "id": 4,
         "content": {
           "type": "content",
           "header": "Опытные",
@@ -167,7 +167,7 @@
       {
         "type": "group",
         "name": "personal",
-        "id": "5",
+        "id": 5,
         "content": {
           "type": "content",
           "header": "Персональные",
@@ -183,7 +183,7 @@
       {
         "type": "item",
         "name": "Once",
-        "id": "1",
+        "id": 1,
         "header": "Разовая",
         "content": {
           "conditions": "",
@@ -193,7 +193,7 @@
       {
         "type": "item",
         "name": "Month1",
-        "id": "2",
+        "id": 2,
         "header": "1 месяц",
         "content": {
           "conditions": "3 раза в неделю",
@@ -209,18 +209,18 @@
         "type": "time",
         "from": "07:30",
         "to": "09:00",
-        "id": "1",
+        "id": 1,
         "contents": [
           {
             "type": "content",
             "name": "Понедельник",
-            "id": "1",
+            "id": 1,
             "content": {
               "sessions": [
                 {
-                  "id": "1",
-                  "sessionsId": "1",
-                  "coachesIds": ["1", "3"]
+                  "id": 1,
+                  "sessionsIds": [1],
+                  "coachesIds": [1, 3]
                 }
               ]
             }
@@ -228,13 +228,13 @@
           {
             "type": "content",
             "name": "Вторник",
-            "id": "2",
+            "id": 2,
             "content": {
               "sessions": [
                 {
-                  "id": "1",
-                  "sessionsId": "3",
-                  "coachesIds": ["2"]
+                  "id": 1,
+                  "sessionsIds": [3],
+                  "coachesIds": [2]
                 }
               ]
             }
@@ -242,7 +242,7 @@
           {
             "type": "content",
             "name": "Среда",
-            "id": "3",
+            "id": 3,
             "content": {
               "sessions": []
             }
@@ -250,13 +250,13 @@
           {
             "type": "content",
             "name": "Четверг",
-            "id": "4",
+            "id": 4,
             "content": {
               "sessions": [
                 {
-                  "id": "1",
-                  "sessionsId": "1",
-                  "coachesIds": ["1"]
+                  "id": 1,
+                  "sessionsIds": [1],
+                  "coachesIds": [1]
                 }
               ]
             }
@@ -264,13 +264,13 @@
           {
             "type": "content",
             "name": "Пятница",
-            "id": "5",
+            "id": 5,
             "content": {
               "sessions": [
                 {
-                  "id": "1",
-                  "sessionsId": "1",
-                  "coachesIds": ["1"]
+                  "id": 1,
+                  "sessionsIds": [1],
+                  "coachesIds": [1]
                 }
               ]
             }
@@ -278,13 +278,13 @@
           {
             "type": "content",
             "name": "Суббота",
-            "id": "6",
+            "id": 6,
             "content": {
               "sessions": [
                 {
-                  "id": "1",
-                  "sessionsId": "1",
-                  "coachesIds": ["1"]
+                  "id": 1,
+                  "sessionsIds": [1],
+                  "coachesIds": [1]
                 }
               ]
             }
@@ -295,18 +295,18 @@
         "type": "time",
         "from": "10:00",
         "to": "11:30",
-        "id": "2",
+        "id": 2,
         "contents": [
           {
             "type": "content",
             "name": "Понедельник",
-            "id": "1",
+            "id": 1,
             "content": {
               "sessions": [
                 {
-                  "id": "1",
-                  "sessionsId": "1",
-                  "coachesIds": ["1", "3"]
+                  "id": 1,
+                  "sessionsIds": [1],
+                  "coachesIds": [1, 3]
                 }
               ]
             }
@@ -314,13 +314,13 @@
           {
             "type": "content",
             "name": "Вторник",
-            "id": "2",
+            "id": 2,
             "content": {
               "sessions": [
                 {
-                  "id": "1",
-                  "sessionsId": "3",
-                  "coachesIds": ["2"]
+                  "id": 1,
+                  "sessionsIds": [3],
+                  "coachesIds": [2]
                 }
               ]
             }
@@ -328,7 +328,7 @@
           {
             "type": "content",
             "name": "Среда",
-            "id": "3",
+            "id": 3,
             "content": {
               "sessions": []
             }
@@ -336,13 +336,13 @@
           {
             "type": "content",
             "name": "Четверг",
-            "id": "4",
+            "id": 4,
             "content": {
               "sessions": [
                 {
-                  "id": "1",
-                  "sessionsId": "1",
-                  "coachesIds": ["1"]
+                  "id": 1,
+                  "sessionsIds": [1],
+                  "coachesIds": [1]
                 }
               ]
             }
@@ -350,13 +350,13 @@
           {
             "type": "content",
             "name": "Пятница",
-            "id": "5",
+            "id": 5,
             "content": {
               "sessions": [
                 {
-                  "id": "1",
-                  "sessionsId": "1",
-                  "coachesIds": ["1"]
+                  "id": 1,
+                  "sessionsIds": [1],
+                  "coachesIds": [1]
                 }
               ]
             }
@@ -364,13 +364,99 @@
           {
             "type": "content",
             "name": "Суббота",
-            "id": "6",
+            "id": 6,
             "content": {
               "sessions": [
                 {
-                  "id": "1",
-                  "sessionsId": "1",
-                  "coachesIds": ["1"]
+                  "id": 1,
+                  "sessionsIds": [1],
+                  "coachesIds": [1]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "type": "time",
+        "from": "11:00",
+        "to": "12:30",
+        "id": 3,
+        "contents": [
+          {
+            "type": "content",
+            "name": "Понедельник",
+            "id": 1,
+            "content": {
+              "sessions": [
+                {
+                  "id": 1,
+                  "sessionsIds": [1],
+                  "coachesIds": [1, 3]
+                }
+              ]
+            }
+          },
+          {
+            "type": "content",
+            "name": "Вторник",
+            "id": 2,
+            "content": {
+              "sessions": [
+                {
+                  "id": 1,
+                  "sessionsIds": [3],
+                  "coachesIds": [2]
+                }
+              ]
+            }
+          },
+          {
+            "type": "content",
+            "name": "Среда",
+            "id": 3,
+            "content": {
+              "sessions": []
+            }
+          },
+          {
+            "type": "content",
+            "name": "Четверг",
+            "id": 4,
+            "content": {
+              "sessions": [
+                {
+                  "id": 1,
+                  "sessionsIds": [1, 3],
+                  "coachesIds": [1]
+                }
+              ]
+            }
+          },
+          {
+            "type": "content",
+            "name": "Пятница",
+            "id": 5,
+            "content": {
+              "sessions": [
+                {
+                  "id": 1,
+                  "sessionsIds": [1, 2],
+                  "coachesIds": [1]
+                }
+              ]
+            }
+          },
+          {
+            "type": "content",
+            "name": "Суббота",
+            "id": 6,
+            "content": {
+              "sessions": [
+                {
+                  "id": 1,
+                  "sessionsIds": [1],
+                  "coachesIds": [1]
                 }
               ]
             }
@@ -380,98 +466,12 @@
     ]
   },
   {
-    "type": "time",
-    "from": "11:00",
-    "to": "12:30",
-    "id": "3",
-    "contents": [
-      {
-        "type": "content",
-        "name": "Понедельник",
-        "id": "1",
-        "content": {
-          "sessions": [
-            {
-              "id": "1",
-              "sessionsId": "1",
-              "coachesIds": ["1", "3"]
-            }
-          ]
-        }
-      },
-      {
-        "type": "content",
-        "name": "Вторник",
-        "id": "2",
-        "content": {
-          "sessions": [
-            {
-              "id": "1",
-              "sessionsId": "3",
-              "coachesIds": ["2"]
-            }
-          ]
-        }
-      },
-      {
-        "type": "content",
-        "name": "Среда",
-        "id": "3",
-        "content": {
-          "sessions": []
-        }
-      },
-      {
-        "type": "content",
-        "name": "Четверг",
-        "id": "4",
-        "content": {
-          "sessions": [
-            {
-              "id": "1",
-              "sessionsId": "1",
-              "coachesIds": ["1"]
-            }
-          ]
-        }
-      },
-      {
-        "type": "content",
-        "name": "Пятница",
-        "id": "5",
-        "content": {
-          "sessions": [
-            {
-              "id": "1",
-              "sessionsId": "1",
-              "coachesIds": ["1"]
-            }
-          ]
-        }
-      },
-      {
-        "type": "content",
-        "name": "Суббота",
-        "id": "6",
-        "content": {
-          "sessions": [
-            {
-              "id": "1",
-              "sessionsId": "1",
-              "coachesIds": ["1"]
-            }
-          ]
-        }
-      }
-    ]
-  },
-  {
     "type": "sessions",
     "contents": [
-      { "id": "1", "name": "Групповые тренировки" },
-      { "id": "2", "name": "Мини-группа" },
-      { "id": "3", "name": "Дети / группа" },
-      { "id": "4", "name": "Чемпионаты" }
+      { "id": 1, "name": "Групповые тренировки" },
+      { "id": 2, "name": "Мини-группа" },
+      { "id": 3, "name": "Дети / группа" },
+      { "id": 4, "name": "Чемпионаты" }
     ]
   }
 ]
