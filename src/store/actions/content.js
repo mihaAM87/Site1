@@ -14,6 +14,7 @@ export const GROUP_TYPES = 'GROUP_TYPES';
 export const COACHES = 'COACHES';
 export const PRICES = 'PRICES';
 export const SCHEDULE = 'SCHEDULE';
+export const SESSIONS = 'SESSIONS';
 export const ERROR = 'ERROR';
 export const START = 'START';
 export const OPEN_MODAL_VIEW = 'OPEN_MODAL_VIEW';

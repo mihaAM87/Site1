@@ -51,6 +51,9 @@ class myMenu extends Component {
               <NavDropdown title="Виды спорта" id="basic-nav-dropdown">
                 {sportTypesArr}
               </NavDropdown>
+              <Nav.Link as={NavLink} to="/schedule">
+                Расписание
+              </Nav.Link>
               <Nav.Link as={NavLink} to="/prices">
                 Стоимость
               </Nav.Link>

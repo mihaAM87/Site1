@@ -7,6 +7,7 @@ import Coaches from './pages/coaches/coaches';
 import Prices from './pages/prices/prices';
 import Contacts from './pages/contacts/contacts';
 import Home from './pages/home/home';
+import Schedule from './pages/schedule/schedule';
 
 class body extends Component {
   static contextTypes = {};
@@ -25,6 +26,7 @@ class body extends Component {
         <Routes>
           <Route path="/sportTypes/:name" element={<SportTypes />} />
           <Route path="/coaches" element={<Coaches />} />
+          <Route path="/schedule" element={<Schedule />} />
           <Route path="/prices" element={<Prices />} />
           <Route path="/contacts" element={<Contacts />} />
           <Route path="/" element={<Home />} />

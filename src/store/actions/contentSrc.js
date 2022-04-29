@@ -10,6 +10,8 @@ import {
   SEND_USER_INFO,
   OPEN_MODAL_VIEW,
   CLOSE_MODAL_VIEW,
+  SCHEDULE,
+  SESSIONS,
 } from './content';
 
 import source from '../source/source.json';

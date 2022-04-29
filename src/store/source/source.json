@@ -75,7 +75,7 @@
         "type": "coach",
         "id": "1",
         "name": "Yuri",
-        "contents": {
+        "content": {
           "type": "Kickboxing",
           "header": "Юрий",
           "content": "Преподаватель-организатор физического воспитания спорта «Донецкого национального университета».",
@@ -86,7 +86,7 @@
         "type": "coach",
         "id": "2",
         "name": "Valery",
-        "contents": {
+        "content": {
           "type": "MMA",
           "header": "Валерий",
           "content": "Преподаёт больше практики",
@@ -97,7 +97,7 @@
         "type": "coach",
         "id": "3",
         "name": "Cantemir",
-        "contents": {
+        "content": {
           "type": "Kickboxing",
           "header": "Кантемир",
           "content": "Преподаёт ОФП",
@@ -108,7 +108,7 @@
         "type": "coach",
         "name": "Jackie_Chan",
         "id": "4",
-        "contents": {
+        "content": {
           "type": "Combat_wrestling",
           "header": "Джеки Чан",
           "content": "Работает у всей Земли Кумиром",
@@ -124,7 +124,7 @@
         "type": "group",
         "name": "women",
         "id": "1",
-        "contents": {
+        "content": {
           "type": "content",
           "header": "Женщины",
           "content": "У нас тренируются женщины",
@@ -135,7 +135,7 @@
         "type": "group",
         "name": "beginners",
         "id": "2",
-        "contents": {
+        "content": {
           "type": "content",
           "header": "Новички",
           "content": "У нас тренируются новички",
@@ -146,7 +146,7 @@
         "type": "group",
         "name": "children",
         "id": "3",
-        "contents": {
+        "content": {
           "type": "content",
           "header": "Дети",
           "content": "У нас тренируются дети",
@@ -157,7 +157,7 @@
         "type": "group",
         "name": "experienced",
         "id": "4",
-        "contents": {
+        "content": {
           "type": "content",
           "header": "Опытные",
           "content": "У нас тренируются опытные",
@@ -168,7 +168,7 @@
         "type": "group",
         "name": "personal",
         "id": "5",
-        "contents": {
+        "content": {
           "type": "content",
           "header": "Персональные",
           "content": "У нас тренируются персонально",

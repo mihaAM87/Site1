@@ -11,6 +11,8 @@ import {
   SEND_USER_INFO,
   OPEN_MODAL_VIEW,
   CLOSE_MODAL_VIEW,
+  SCHEDULE,
+  SESSIONS,
 } from '../actions/content';
 
 const initialState = {
@@ -62,13 +64,13 @@ export default function contentReducer(state = initialState, action) {
       return {
         ...state,
         loading: false,
-        schedule: action.contentArr,
+        scheduleArr: action.contentArr,
       };
     case LOAD_ALL_CONTENTS + SESSIONS:
       return {
         ...state,
         loading: false,
-        sessions: action.contentArr,
+        sessionArr: action.contentArr,
       };
     case LOAD_ALL_CONTENTS + ERROR:
       return {

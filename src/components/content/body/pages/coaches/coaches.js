@@ -36,7 +36,7 @@ class coaches extends Component {
 
     if (sportType && sportType != '') {
       coachesArr = coachesArr?.contents?.filter(
-        (item) => item.contents.type.toLowerCase() === sportType?.toLowerCase()
+        (item) => item.content.type.toLowerCase() === sportType?.toLowerCase()
       );
     } else {
       coachesArr = coachesArr?.contents;
@@ -44,18 +44,18 @@ class coaches extends Component {
 
     if (coachesArr && coachesArr.length > 0) {
       coachesArr = coachesArr.map((element) => {
-        let elementContents = element.contents;
+        let elementContent = element.content;
         let itemKey = Math.random();
         return (
           <div className={itemClass.join(' ')} key={itemKey}>
             <Card>
               <Card.Img
                 variant="top"
-                src={IMG_DIRECTORY + COACHES_IMGES_DIR + elementContents.img}
+                src={IMG_DIRECTORY + COACHES_IMGES_DIR + elementContent.img}
               />
               <Card.Body>
-                <Card.Title>{elementContents.header}</Card.Title>
-                <Card.Text>{elementContents.content}</Card.Text>
+                <Card.Title>{elementContent.header}</Card.Title>
+                <Card.Text>{elementContent.content}</Card.Text>
                 {/* <Button variant="primary">Go somewhere</Button> */}
                 <button
                   className="form-control btn btn-primary"

@@ -50,12 +50,12 @@ class carusel extends Component {
             <img
               key={itemKey}
               className={imgClasses.join(' ')}
-              src={IMG_DIRECTORY + GROUPTYPES_IMGES_DIR + element.contents.img}
-              alt={element.contents.header}
+              src={IMG_DIRECTORY + GROUPTYPES_IMGES_DIR + element.content.img}
+              alt={element.content.header}
             />
             <Carousel.Caption>
-              <h3>{element.contents.header}</h3>
-              <p>{element.contents.content}.</p>
+              <h3>{element.content.header}</h3>
+              <p>{element.content.content}.</p>
             </Carousel.Caption>
           </Carousel.Item>
         );
