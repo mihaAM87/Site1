@@ -8,6 +8,7 @@ import {
 import { fetchAllContentByType } from '../../../../../store/actions/contentSrc';
 import Card from 'react-bootstrap/Card';
 import Carusel from '../../../carusel/carusel';
+import classes from './coaches.module.scss';
 
 class coaches extends Component {
   static contextTypes = {
@@ -33,6 +34,7 @@ class coaches extends Component {
     const itemClass = [];
 
     itemClass.push('col-md-4');
+    itemClass.push(classes.itemClass);
 
     if (sportType && sportType != '') {
       coachesArr = coachesArr?.contents?.filter(

@@ -42,6 +42,7 @@ class carusel extends Component {
 
         imgClasses.push(classes.mainImg);
         imgClasses.push('d-block w-100');
+        // imgClasses.push('img-fluid mw-100 mh-100');
 
         let itemKey = Math.random();
 
