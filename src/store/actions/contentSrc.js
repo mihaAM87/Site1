@@ -100,7 +100,7 @@ export function getSessionsContent(contentArr) {
   };
 }
 
-export function fetchAllContentByType(type, name = null) {
+export function fetchAllContentByType(type) {
   return async (dispatch) => {
     dispatch(fetchContentStart());
 
@@ -111,12 +111,6 @@ export function fetchAllContentByType(type, name = null) {
 
       switch (type) {
         case 'sportTypes': {
-          if (name) {
-            contentArr = contentArr.contents.find(
-              (item) => item.name.toLowerCase() === name.toLowerCase()
-            );
-            dispatch(getSportTypeItemContent(contentArr));
-          }
           dispatch(getSportTypeContent(contentArr));
           break;
         }

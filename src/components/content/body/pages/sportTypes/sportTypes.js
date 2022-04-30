@@ -16,8 +16,12 @@ export default function SportTypes() {
   const params = useParams();
   const store = useStore();
 
-  dispatch(fetchAllContentByType('sportTypes', params.name));
-  let sportTypeItem = store.getState().content.sportTypeItem;
+  dispatch(fetchAllContentByType('sportTypes'));
+  let sportTypeItem = store
+    .getState()
+    .content.sportTypesArr.contents.find(
+      (item) => item.name.toLowerCase() === params.name.toLowerCase()
+    );
 
   // let [sportTypeItem, setSportTypeItem] = useReducer(() => {
   //   dispatch(fetchAllContentByType('sportTypes', params.name));
