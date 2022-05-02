@@ -40,14 +40,14 @@ class carusel extends Component {
           itemClasses.push('active');
         }
 
+        itemClasses.push(classes.mainItem);
+
         imgClasses.push(classes.mainImg);
-        imgClasses.push('d-block w-100');
-        // imgClasses.push('img-fluid mw-100 mh-100');
 
         let itemKey = Math.random();
 
         return (
-          <Carousel.Item>
+          <Carousel.Item className={itemClasses.join(' ')}>
             <img
               key={itemKey}
               className={imgClasses.join(' ')}

@@ -14,6 +14,9 @@ import {
   SESSIONS,
 } from './content';
 
+import React from 'react';
+import emailjs from 'emailjs-com';
+
 import source from '../source/source.json';
 
 export function fetchContentStart(contentArr) {
@@ -141,17 +144,35 @@ export function fetchAllContentByType(type) {
   };
 }
 
-export function onSend(userName, userEmail, userPhone) {
+export function onSend(userName, userEmail, contact_number) {
   return async (dispatch) => {
     dispatch(fetchContentStart());
 
     try {
-      dispatch(onSendContent(userName, userEmail, userPhone));
+      dispatch(sendEmail(userName, userEmail, contact_number));
       dispatch(onClose());
     } catch (e) {
       dispatch(fetchContentError(e));
     }
   };
+}
+
+function sendEmail(from_name, userEmail, userPhone) {
+  emailjs
+    .sendForm(
+      'YOUR_SERVICE_ID',
+      'YOUR_TEMPLATE_ID',
+      { from_name, userEmail, userPhone },
+      'YOUR_USER_ID'
+    )
+    .then(
+      (result) => {
+        window.location.reload(); //This is if you still want the page to reload (since e.preventDefault() cancelled that behavior)
+      },
+      (error) => {
+        console.log(error.text);
+      }
+    );
 }
 
 export function onOpen() {

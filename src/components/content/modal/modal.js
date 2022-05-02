@@ -9,19 +9,20 @@ class modal extends Component {
     userName: PropTypes.string,
     userEmail: PropTypes.string,
     userPhone: PropTypes.string,
-    visible: PropTypes.bool,
+    visibleModel: PropTypes.bool,
   };
 
   state = {
     userName: '',
     userEmail: '',
     userPhone: '',
+    visibleModel: false,
   };
 
   UNSAFE_componentWillMount() {}
 
   render() {
-    let { userName, userEmail, userPhone, onSend, onClose, visible } =
+    let { userName, userEmail, userPhone, onSend, onClose, visibleModel } =
       this.props;
 
     // создаем обработчик нажатия клавиши Esc
@@ -41,7 +42,7 @@ class modal extends Component {
     // });
 
     // если компонент невидим, то не отображаем его
-    if (!visible) return null;
+    // if (!visibleModel) return null;
 
     // или возвращаем верстку модального окна
     return (
@@ -93,7 +94,7 @@ function mapStateToProps(state) {
     userName: state.content.userName,
     userEmail: state.content.userEmail,
     userPhone: state.content.userPhone,
-    visible: state.content.visible,
+    visibleModel: state.content.visibleModel,
   };
 }
 

@@ -1,4 +1,8 @@
 .mainImg {
-  max-height: 300px;
-  object-fit: cover;
+  width: 100%;
+  // object-fit: contain;
+}
+
+.mainItem {
+  height: 300px;
 }

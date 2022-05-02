@@ -39,7 +39,7 @@ class mainContent extends Component {
           <Body />
 
           <Footer />
-          <Modal visible={visibleModel} />
+          <Modal visibleModel={visibleModel} />
         </div>
       </div>
     );
