@@ -1,0 +1,49 @@
+{
+  "type": "coaches",
+  "contents": [
+    {
+      "type": "coach",
+      "id": 1,
+      "name": "Yuri",
+      "content": {
+        "type": "Kickboxing",
+        "header": "Юрий",
+        "content": "Преподаватель-организатор физического воспитания спорта «Донецкого национального университета».",
+        "img": "Юрий.jpg"
+      }
+    },
+    {
+      "type": "coach",
+      "id": 2,
+      "name": "Valery",
+      "content": {
+        "type": "MMA",
+        "header": "Валерий",
+        "content": "Преподаёт больше практики",
+        "img": "Валерий.jpg"
+      }
+    },
+    {
+      "type": "coach",
+      "id": 3,
+      "name": "Cantemir",
+      "content": {
+        "type": "Kickboxing",
+        "header": "Кантемир",
+        "content": "Преподаёт ОФП",
+        "img": "Кантемир.webp"
+      }
+    },
+    {
+      "type": "coach",
+      "name": "Jackie_Chan",
+      "id": 4,
+      "content": {
+        "type": "Combat_wrestling",
+        "header": "Джеки Чан",
+        "content": "Работает у всей Земли Кумиром",
+        "img": "Джеки_Чан.jpg"
+      }
+    }
+  ]
+}

@@ -17,7 +17,12 @@ import {
 import React from 'react';
 import emailjs from 'emailjs-com';
 
-import source from '../source/source.json';
+import coachesSource from '../source/coachesSource.json';
+import groupTypesSource from '../source/groupTypesSource.json';
+import pricesSource from '../source/pricesSource.json';
+import scheduleSource from '../source/scheduleSource.json';
+import sessionsSource from '../source/sessionsSource.json';
+import sportTypesSource from '../source/sportTypesSource.json';
 
 export function fetchContentStart(contentArr) {
   return {
@@ -108,33 +113,29 @@ export function fetchAllContentByType(type) {
     dispatch(fetchContentStart());
 
     try {
-      let contentArr = source;
-
-      contentArr = contentArr.find((item) => item.type === type);
-
       switch (type) {
         case 'sportTypes': {
-          dispatch(getSportTypeContent(contentArr));
+          dispatch(getSportTypeContent(sportTypesSource));
           break;
         }
         case 'coaches': {
-          dispatch(getCoachesContent(contentArr));
+          dispatch(getCoachesContent(coachesSource));
           break;
         }
         case 'groupTypes': {
-          dispatch(getGroupTypesContent(contentArr));
+          dispatch(getGroupTypesContent(groupTypesSource));
           break;
         }
         case 'prices': {
-          dispatch(getPricesContent(contentArr));
+          dispatch(getPricesContent(pricesSource));
           break;
         }
         case 'schedule': {
-          dispatch(getScheduleContent(contentArr));
+          dispatch(getScheduleContent(scheduleSource));
           break;
         }
         case 'sessions': {
-          dispatch(getSessionsContent(contentArr));
+          dispatch(getSessionsContent(sessionsSource));
           break;
         }
       }

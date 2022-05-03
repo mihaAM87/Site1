@@ -1,0 +1,25 @@
+{
+  "type": "prices",
+  "contents": [
+    {
+      "type": "item",
+      "name": "Once",
+      "id": 1,
+      "header": "Разовая",
+      "content": {
+        "conditions": "",
+        "price": 500
+      }
+    },
+    {
+      "type": "item",
+      "name": "Month1",
+      "id": 2,
+      "header": "1 месяц",
+      "content": {
+        "conditions": "3 раза в неделю",
+        "price": 4000
+      }
+    }
+  ]
+}
