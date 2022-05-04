@@ -21,10 +21,15 @@ export default function Coaches({ sportType }) {
   let { coachesArr } = store.getState().content;
   coachesArr = coachesArr || [];
 
+  const header = coachesArr?.header;
+
   const itemClass = [];
+  const mainDiv = [];
+
+  mainDiv.push('container');
+  mainDiv.push(classes.mainDiv);
 
   itemClass.push('col-md-4');
-  itemClass.push(classes.itemClass);
 
   if (sportType && sportType != '') {
     coachesArr = coachesArr?.contents?.filter(
@@ -67,7 +72,8 @@ export default function Coaches({ sportType }) {
     <div className="row">
       {!sportType || sportType == '' ? <Carusel /> : <br />}
 
-      <div className="conteiner">
+      <div className={mainDiv.join(' ')}>
+        <h1>{header}</h1>
         <div className="row">{coachesArr ? coachesArr : <br />}</div>
       </div>
     </div>

@@ -17,11 +17,13 @@ export default function SportTypes() {
   const store = useStore();
 
   dispatch(fetchAllContentByType('sportTypes'));
-  let sportTypeItem = store
-    .getState()
-    .content.sportTypesArr.contents.find(
-      (item) => item.name.toLowerCase() === params.name.toLowerCase()
-    );
+
+  const sportTypesArr = store.getState().content.sportTypesArr;
+  let sportTypeItem = sportTypesArr.contents.find(
+    (item) => item.name.toLowerCase() === params.name.toLowerCase()
+  );
+
+  const header = sportTypesArr?.header;
 
   const navClass = [];
 
@@ -32,6 +34,7 @@ export default function SportTypes() {
       <Carusel />
       {sportTypeItem ? (
         <div className={navClass.join(' ')}>
+          <h1 className="text-black">{header}</h1>
           <div
             className={classes.mainContent}
             style={{

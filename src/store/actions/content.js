@@ -13,6 +13,7 @@ export const SPORT_TYPES_ITEM = 'SPORT_TYPES_ITEM';
 export const GROUP_TYPES = 'GROUP_TYPES';
 export const COACHES = 'COACHES';
 export const PRICES = 'PRICES';
+export const CONTACTS = 'CONTACTS';
 export const SCHEDULE = 'SCHEDULE';
 export const SESSIONS = 'SESSIONS';
 export const ERROR = 'ERROR';

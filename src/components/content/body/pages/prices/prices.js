@@ -16,6 +16,8 @@ export default function Prices() {
   let { pricesArr } = store.getState().content;
   pricesArr = pricesArr || [];
 
+  const header = pricesArr?.header;
+
   const itemClass = [];
 
   itemClass.push('col-md-3');
@@ -57,7 +59,7 @@ export default function Prices() {
       <Carusel />
       <div className="conteiner">
         <div className="row">
-          <h1>Стоимость тренировок</h1>
+          <h1>{header}</h1>
           {pricesArr}
         </div>
       </div>

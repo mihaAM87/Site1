@@ -1,5 +1,6 @@
 {
   "type": "coaches",
+  "header": "Тренеры",
   "contents": [
     {
       "type": "coach",

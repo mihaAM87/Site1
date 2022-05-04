@@ -13,6 +13,7 @@ import {
   CLOSE_MODAL_VIEW,
   SCHEDULE,
   SESSIONS,
+  CONTACTS,
 } from '../actions/content';
 
 const initialState = {
@@ -89,6 +90,12 @@ export default function contentReducer(state = initialState, action) {
         ...state,
         loading: false,
         visibleModel: false,
+      };
+    case LOAD_ALL_CONTENTS + CONTACTS:
+      return {
+        ...state,
+        loading: false,
+        contacts: action.contentArr,
       };
     case SEND_USER_INFO:
       return {

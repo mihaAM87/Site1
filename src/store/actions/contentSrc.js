@@ -12,6 +12,7 @@ import {
   CLOSE_MODAL_VIEW,
   SCHEDULE,
   SESSIONS,
+  CONTACTS,
 } from './content';
 import { useDispatch } from 'react-redux';
 
@@ -24,6 +25,7 @@ import pricesSource from '../source/pricesSource.json';
 import scheduleSource from '../source/scheduleSource.json';
 import sessionsSource from '../source/sessionsSource.json';
 import sportTypesSource from '../source/sportTypesSource.json';
+import contactsSource from '../source/contactsSource.json';
 
 export function fetchContentStart(contentArr) {
   return {
@@ -109,6 +111,13 @@ export function getSessionsContent(contentArr) {
   };
 }
 
+export function contactsContent(contentArr) {
+  return {
+    type: LOAD_ALL_CONTENTS + CONTACTS,
+    contentArr,
+  };
+}
+
 export function fetchAllContentByType(type) {
   return async () => {
     const dispatch = useDispatch();
@@ -138,6 +147,10 @@ export function fetchAllContentByType(type) {
         }
         case 'sessions': {
           dispatch(getSessionsContent(sessionsSource));
+          break;
+        }
+        case 'contacts': {
+          dispatch(contactsContent(contactsSource));
           break;
         }
       }

@@ -1,5 +1,6 @@
 {
   "type": "prices",
+  "header": "Стоимость тренировок",
   "contents": [
     {
       "type": "item",

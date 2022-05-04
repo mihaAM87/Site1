@@ -53,13 +53,13 @@ export default function Schedule() {
 
   const navClass = [];
 
-  navClass.push('text-white');
+  navClass.push('text-center');
 
   return (
     <div className="row">
       <Carusel />
-      <div className={navClass.join(' ')}>
-        <h1 className="col-md-2">Расписание занятий</h1>
+      <div>
+        <h1 className={navClass.join(' ')}>{scheduleArr.header}</h1>
         <div className="row">
           <Table striped bordered hover className={classes.mainTable}>
             <thead>

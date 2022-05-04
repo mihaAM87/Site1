@@ -9,13 +9,22 @@ import {
   MAIN_IMGES_DIR,
 } from '../../../../store/actions/content';
 import PropTypes from 'prop-types';
-import { onOpen } from '../../../../store/actions/contentSrc';
+import {
+  onOpen,
+  fetchAllContentByType,
+} from '../../../../store/actions/contentSrc';
 import { connect } from 'react-redux';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useStore } from 'react-redux';
 
 export default function Caption() {
   const dispatch = useDispatch();
+  const store = useStore();
   const open = () => dispatch(onOpen());
+
+  dispatch(fetchAllContentByType('contacts'));
+
+  let { city, street, home, undergrounds, phones, emails } =
+    store.getState().content.contacts;
 
   let mainClass = [];
 
@@ -42,14 +51,14 @@ export default function Caption() {
               className={classes.metroImg}
             ></img>
             <span>
-              г. Москва, Краснодонская улица, 39, м. "Волжская", м. "Люблино"
+              {city}, {street}, {home}, м. {undergrounds?.join(', м. ')}
             </span>
           </div>
           <div className="col-md-2">
             <div>
-              <span>MikhailAA1@yandex.ru</span>
+              <span>{emails?.join(', ')}</span>
               <br />
-              <span>+7 (964) 763-21-29</span>
+              <span>{phones?.join(', ')}</span>
             </div>
           </div>
           <div className="col-md-2">
