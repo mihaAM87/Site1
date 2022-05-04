@@ -4,16 +4,12 @@ import MainContent from './components/mainContent';
 import './App.scss';
 import { BrowserRouter } from 'react-router-dom';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <BrowserRouter>
-          <MainContent />
-        </BrowserRouter>
-      </div>
-    );
-  }
+export default function () {
+  return (
+    <div className="App">
+      <BrowserRouter>
+        <MainContent />
+      </BrowserRouter>
+    </div>
+  );
 }
-
-export default App;

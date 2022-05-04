@@ -8,76 +8,52 @@ import {
   GROUPTYPES_IMGES_DIR,
 } from '../../../store/actions/content';
 import { fetchAllContentByType } from '../../../store/actions/contentSrc';
+import { useDispatch, useStore } from 'react-redux';
 
-class carusel extends Component {
-  static contextTypes = {
-    type: PropTypes.string,
-    groupTypesArr: PropTypes.array,
-  };
+export default function Carusel() {
+  const store = useStore();
+  const dispatch = useDispatch();
 
-  state = {
-    groupTypesArr: [],
-  };
+  dispatch(fetchAllContentByType('groupTypes'));
 
-  UNSAFE_componentWillMount() {
-    this.props.groupTypesInit('groupTypes', this.state.groupTypesArr);
+  let { groupTypesArr } = store.getState().content;
+  groupTypesArr = groupTypesArr || [];
+  if (
+    groupTypesArr &&
+    groupTypesArr.contents &&
+    groupTypesArr.contents.length > 0
+  ) {
+    groupTypesArr = groupTypesArr.contents.map((element) => {
+      let itemClasses = [];
+      let imgClasses = [];
+      itemClasses.push('carousel-item');
+
+      if (element.name.toLowerCase() === 'женщины') {
+        itemClasses.push('active');
+      }
+
+      itemClasses.push(classes.mainItem);
+
+      imgClasses.push(classes.mainImg);
+
+      let itemKey = Math.random();
+
+      return (
+        <Carousel.Item className={itemClasses.join(' ')}>
+          <img
+            key={itemKey}
+            className={imgClasses.join(' ')}
+            src={IMG_DIRECTORY + GROUPTYPES_IMGES_DIR + element.content.img}
+            alt={element.content.header}
+          />
+          <Carousel.Caption>
+            <h3>{element.content.header}</h3>
+            <p>{element.content.content}.</p>
+          </Carousel.Caption>
+        </Carousel.Item>
+      );
+    });
   }
 
-  render() {
-    let { groupTypesArr } = this.props;
-    groupTypesArr = groupTypesArr || [];
-    if (
-      groupTypesArr &&
-      groupTypesArr.contents &&
-      groupTypesArr.contents.length > 0
-    ) {
-      groupTypesArr = groupTypesArr.contents.map((element) => {
-        let itemClasses = [];
-        let imgClasses = [];
-        itemClasses.push('carousel-item');
-
-        if (element.name.toLowerCase() === 'женщины') {
-          itemClasses.push('active');
-        }
-
-        itemClasses.push(classes.mainItem);
-
-        imgClasses.push(classes.mainImg);
-
-        let itemKey = Math.random();
-
-        return (
-          <Carousel.Item className={itemClasses.join(' ')}>
-            <img
-              key={itemKey}
-              className={imgClasses.join(' ')}
-              src={IMG_DIRECTORY + GROUPTYPES_IMGES_DIR + element.content.img}
-              alt={element.content.header}
-            />
-            <Carousel.Caption>
-              <h3>{element.content.header}</h3>
-              <p>{element.content.content}.</p>
-            </Carousel.Caption>
-          </Carousel.Item>
-        );
-      });
-    }
-
-    return <Carousel>{groupTypesArr}</Carousel>;
-  }
+  return <Carousel>{groupTypesArr}</Carousel>;
 }
-function mapStateToProps(state) {
-  return {
-    groupTypesArr: state.content.groupTypesArr,
-    loading: state.content.loading,
-  };
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    groupTypesInit: (type, groupTypesArr) =>
-      dispatch(fetchAllContentByType(type)),
-  };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(carusel);

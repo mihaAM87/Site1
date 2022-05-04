@@ -9,38 +9,21 @@ import Contacts from './pages/contacts/contacts';
 import Home from './pages/home/home';
 import Schedule from './pages/schedule/schedule';
 
-class body extends Component {
-  static contextTypes = {};
+export default function Body() {
+  let myBody = [];
+  myBody.push('container');
+  myBody.push(classes.myBody);
 
-  state = {};
-
-  componentWillMount() {}
-
-  render() {
-    let myBody = [];
-    myBody.push('container');
-    myBody.push(classes.myBody);
-
-    return (
-      <div className={myBody.push(' ')}>
-        <Routes>
-          <Route path="/sportTypes/:name" element={<SportTypes />} />
-          <Route path="/coaches" element={<Coaches />} />
-          <Route path="/schedule" element={<Schedule />} />
-          <Route path="/prices" element={<Prices />} />
-          <Route path="/contacts" element={<Contacts />} />
-          <Route path="/" element={<Home />} />
-        </Routes>
-      </div>
-    );
-  }
+  return (
+    <div className={myBody.push(' ')}>
+      <Routes>
+        <Route path="/sportTypes/:name" element={<SportTypes />} />
+        <Route path="/coaches" element={<Coaches />} />
+        <Route path="/schedule" element={<Schedule />} />
+        <Route path="/prices" element={<Prices />} />
+        <Route path="/contacts" element={<Contacts />} />
+        <Route path="/" element={<Home />} />
+      </Routes>
+    </div>
+  );
 }
-function mapStateToProps(state) {
-  return {};
-}
-
-function mapDispatchToProps(dispatch) {
-  return {};
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(body);

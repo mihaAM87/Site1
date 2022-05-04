@@ -13,6 +13,7 @@ import {
   SCHEDULE,
   SESSIONS,
 } from './content';
+import { useDispatch } from 'react-redux';
 
 import React from 'react';
 import emailjs from 'emailjs-com';
@@ -109,7 +110,8 @@ export function getSessionsContent(contentArr) {
 }
 
 export function fetchAllContentByType(type) {
-  return async (dispatch) => {
+  return async () => {
+    const dispatch = useDispatch();
     dispatch(fetchContentStart());
 
     try {

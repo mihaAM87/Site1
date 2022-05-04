@@ -1,100 +1,75 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import {
   IMG_DIRECTORY,
   COACHES_IMGES_DIR,
 } from '../../../../../store/actions/content';
-import { fetchAllContentByType } from '../../../../../store/actions/contentSrc';
+import {
+  fetchAllContentByType,
+  onOpen,
+} from '../../../../../store/actions/contentSrc';
 import Card from 'react-bootstrap/Card';
 import Carusel from '../../../carusel/carusel';
 import classes from './coaches.module.scss';
+import { useDispatch, useStore } from 'react-redux';
 
-class coaches extends Component {
-  static contextTypes = {
-    type: PropTypes.string,
-    coachesArr: PropTypes.array,
-    sportTypeName: PropTypes.string,
-    sportType: PropTypes.string,
-  };
+export default function Coaches({ sportType }) {
+  const store = useStore();
+  const dispatch = useDispatch();
 
-  state = {
-    coachesArr: [],
-    sportType: null,
-  };
+  dispatch(fetchAllContentByType('coaches'));
 
-  UNSAFE_componentWillMount() {
-    this.props.coachesInit('coaches');
-  }
+  let { coachesArr } = store.getState().content;
+  coachesArr = coachesArr || [];
 
-  render() {
-    let { coachesArr, sportType } = this.props;
-    coachesArr = coachesArr || [];
+  const itemClass = [];
 
-    const itemClass = [];
+  itemClass.push('col-md-4');
+  itemClass.push(classes.itemClass);
 
-    itemClass.push('col-md-4');
-    itemClass.push(classes.itemClass);
-
-    if (sportType && sportType != '') {
-      coachesArr = coachesArr?.contents?.filter(
-        (item) => item.content.type.toLowerCase() === sportType?.toLowerCase()
-      );
-    } else {
-      coachesArr = coachesArr?.contents;
-    }
-
-    if (coachesArr && coachesArr.length > 0) {
-      coachesArr = coachesArr.map((element) => {
-        let elementContent = element.content;
-        let itemKey = Math.random();
-        return (
-          <div className={itemClass.join(' ')} key={itemKey}>
-            <Card>
-              <Card.Img
-                variant="top"
-                src={IMG_DIRECTORY + COACHES_IMGES_DIR + elementContent.img}
-              />
-              <Card.Body>
-                <Card.Title>{elementContent.header}</Card.Title>
-                <Card.Text>{elementContent.content}</Card.Text>
-                {/* <Button variant="primary">Go somewhere</Button> */}
-                <button
-                  className="form-control btn btn-primary"
-                  variant="primary"
-                  onClick={this.onOpen}
-                >
-                  Записаться
-                </button>
-              </Card.Body>
-            </Card>
-          </div>
-        );
-      });
-    }
-
-    return (
-      <div className="row">
-        {!sportType || sportType == '' ? <Carusel /> : <br />}
-
-        <div className="conteiner">
-          <div className="row">{coachesArr ? coachesArr : <br />}</div>
-        </div>
-      </div>
+  if (sportType && sportType != '') {
+    coachesArr = coachesArr?.contents?.filter(
+      (item) => item.content.type.toLowerCase() === sportType?.toLowerCase()
     );
+  } else {
+    coachesArr = coachesArr?.contents;
   }
-}
-function mapStateToProps(state) {
-  return {
-    coachesArr: state.content.coachesArr,
-    loading: state.content.loading,
-  };
-}
 
-function mapDispatchToProps(dispatch) {
-  return {
-    coachesInit: (type, coachesArr) => dispatch(fetchAllContentByType(type)),
-  };
-}
+  if (coachesArr && coachesArr.length > 0) {
+    coachesArr = coachesArr.map((element) => {
+      let elementContent = element.content;
+      let itemKey = Math.random();
+      return (
+        <div className={itemClass.join(' ')} key={itemKey}>
+          <Card>
+            <Card.Img
+              variant="top"
+              src={IMG_DIRECTORY + COACHES_IMGES_DIR + elementContent.img}
+            />
+            <Card.Body>
+              <Card.Title>{elementContent.header}</Card.Title>
+              <Card.Text>{elementContent.content}</Card.Text>
+              {/* <Button variant="primary">Go somewhere</Button> */}
+              <button
+                className="form-control btn btn-primary"
+                variant="primary"
+                onClick={onOpen}
+              >
+                Записаться
+              </button>
+            </Card.Body>
+          </Card>
+        </div>
+      );
+    });
+  }
 
-export default connect(mapStateToProps, mapDispatchToProps)(coaches);
+  return (
+    <div className="row">
+      {!sportType || sportType == '' ? <Carusel /> : <br />}
+
+      <div className="conteiner">
+        <div className="row">{coachesArr ? coachesArr : <br />}</div>
+      </div>
+    </div>
+  );
+}

@@ -7,54 +7,33 @@ import Footer from './content/footer/footer';
 import Modal from './content/modal/modal';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { useStore } from 'react-redux';
 
-class mainContent extends Component {
-  static contextTypes = {
-    visibleModel: PropTypes.bool,
-  };
+export default function MainContent() {
+  const store = useStore();
+  let { visibleModel } = store.getState().content;
+  let mainClass = [];
+  let headerClass = [];
 
-  state = {
-    visibleModel: false,
-  };
+  mainClass.push('row');
+  mainClass.push(classes.mainClass);
 
-  render() {
-    let { visibleModel } = this.props;
-    let mainClass = [];
-    let headerClass = [];
+  headerClass.push('row');
+  headerClass.push(classes.headerClass);
 
-    mainClass.push('row');
-    mainClass.push(classes.mainClass);
-
-    headerClass.push('row');
-    headerClass.push(classes.headerClass);
-
-    return (
-      <div className="row">
-        <div className={headerClass.join(' ')}>
-          <Header />
-        </div>
-        <div className={mainClass.join(' ')}>
-          <MainImage />
-
-          <Body />
-
-          <Footer />
-          <Modal visibleModel={visibleModel} />
-        </div>
+  return (
+    <div className="row">
+      <div className={headerClass.join(' ')}>
+        <Header />
       </div>
-    );
-  }
-}
+      <div className={mainClass.join(' ')}>
+        <MainImage />
 
-function mapStateToProps(state) {
-  return {
-    visibleModel: state.content.visibleModel,
-    loading: state.content.loading,
-  };
-}
+        <Body />
 
-function mapDispatchToProps(dispatch) {
-  return {};
+        <Footer />
+        <Modal visibleModel={visibleModel} />
+      </div>
+    </div>
+  );
 }
-
-export default connect(mapStateToProps, mapDispatchToProps)(mainContent);

@@ -23,15 +23,6 @@ export default function SportTypes() {
       (item) => item.name.toLowerCase() === params.name.toLowerCase()
     );
 
-  // let [sportTypeItem, setSportTypeItem] = useReducer(() => {
-  //   dispatch(fetchAllContentByType('sportTypes', params.name));
-  //   return store.getState().content.sportTypeItem;
-  // });
-
-  // if (!sportTypeItem) {
-  //   setSportTypeItem();
-  // }
-
   const navClass = [];
 
   navClass.push('text-white');
