@@ -176,10 +176,10 @@ export function onSend(userName, userEmail, contact_number) {
 function sendEmail(from_name, userEmail, userPhone) {
   emailjs
     .sendForm(
-      'YOUR_SERVICE_ID',
-      'YOUR_TEMPLATE_ID',
+      'service_14jmwku',
+      'template_f31ex0a',
       { from_name, userEmail, userPhone },
-      'YOUR_USER_ID'
+      'XYNOX-L544CmbvKdh'
     )
     .then(
       (result) => {

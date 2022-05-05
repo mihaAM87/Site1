@@ -11,7 +11,6 @@ import { useStore } from 'react-redux';
 
 export default function MainContent() {
   const store = useStore();
-  let { visibleModel } = store.getState().content;
   let mainClass = [];
   let headerClass = [];
 
@@ -32,7 +31,7 @@ export default function MainContent() {
         <Body />
 
         <Footer />
-        <Modal visibleModel={visibleModel} />
+        <Modal />
       </div>
     </div>
   );
