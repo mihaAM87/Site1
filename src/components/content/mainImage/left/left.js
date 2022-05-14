@@ -1,14 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import classes from './left.module.scss';
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
-import { onOpen } from '../../../../store/actions/contentSrc';
-import { connect } from 'react-redux';
-import { useDispatch } from 'react-redux';
+import { ModalContext } from '../../context/modal/modalContext';
 
 export default function Left() {
-  const dispatch = useDispatch();
-  const open = () => dispatch(onOpen());
+  const { show } = useContext(ModalContext);
 
   const mainClass = [];
 
@@ -29,7 +25,7 @@ export default function Left() {
         </h2>
         <div className="row d-flex justify-content-start col-md-12">
           <div className="col-md-6">
-            <button type="button" className="btn btn-light" onClick={open}>
+            <button type="button" className="btn btn-light" onClick={show}>
               Записаться
             </button>
           </div>

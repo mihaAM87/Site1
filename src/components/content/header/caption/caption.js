@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useContext, useState } from 'react';
 import classes from './caption.module.scss';
 import { NavbarBrand } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
@@ -9,17 +9,15 @@ import {
   MAIN_IMGES_DIR,
 } from '../../../../store/actions/content';
 import PropTypes from 'prop-types';
-import {
-  onOpen,
-  fetchAllContentByType,
-} from '../../../../store/actions/contentSrc';
+import { fetchAllContentByType } from '../../../../store/actions/contentSrc';
 import { connect } from 'react-redux';
 import { useDispatch, useStore } from 'react-redux';
+import { ModalContext } from '../../context/modal/modalContext';
 
 export default function Caption() {
+  const { show } = useContext(ModalContext);
   const dispatch = useDispatch();
   const store = useStore();
-  const open = () => dispatch(onOpen());
 
   dispatch(fetchAllContentByType('contacts'));
 
@@ -36,7 +34,7 @@ export default function Caption() {
       <div className="container">
         <div className="row align-items-center">
           <div className="col-md-4">
-            <NavbarBrand as={NavLink} to="/">
+            <NavbarBrand as={NavLink} to="/" exact>
               <img
                 alt="Логотип"
                 src={IMG_DIRECTORY + MAIN_IMGES_DIR + LOGOTYPE}
@@ -62,7 +60,7 @@ export default function Caption() {
             </div>
           </div>
           <div className="col-md-2">
-            <button className="form-control btn btn-dark" onClick={open}>
+            <button className="form-control btn btn-dark" onClick={show}>
               Заказать Звонок
             </button>
           </div>

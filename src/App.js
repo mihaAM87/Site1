@@ -3,13 +3,16 @@ import React, { Component } from 'react';
 import MainContent from './components/mainContent';
 import './App.scss';
 import { BrowserRouter } from 'react-router-dom';
+import { ModalState } from './context/modal/ModalState';
 
 export default function () {
   return (
     <div className="App">
-      <BrowserRouter>
-        <MainContent />
-      </BrowserRouter>
+      <ModalState>
+        <BrowserRouter>
+          <MainContent />
+        </BrowserRouter>
+      </ModalState>
     </div>
   );
 }

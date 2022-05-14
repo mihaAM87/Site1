@@ -22,7 +22,7 @@ export default function Body() {
         <Route path="/schedule" element={<Schedule />} />
         <Route path="/prices" element={<Prices />} />
         <Route path="/contacts" element={<Contacts />} />
-        <Route path="/" element={<Home />} />
+        <Route path="/" exact element={<Home />} />
       </Routes>
     </div>
   );

@@ -21,7 +21,7 @@ const initialState = {
   error: null,
   results: {},
   isFinished: false,
-  visibleModel: false,
+  visibleModel: true,
 };
 
 export default function contentReducer(state = initialState, action) {

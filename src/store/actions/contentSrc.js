@@ -85,18 +85,6 @@ export function getPricesContent(contentArr) {
   };
 }
 
-export function onOpenContent() {
-  return {
-    type: OPEN_MODAL_VIEW,
-  };
-}
-
-export function onCloseContent() {
-  return {
-    type: CLOSE_MODAL_VIEW,
-  };
-}
-
 export function getScheduleContent(contentArr) {
   return {
     type: LOAD_ALL_CONTENTS + SCHEDULE,
@@ -189,28 +177,4 @@ function sendEmail(from_name, userEmail, userPhone) {
         console.log(error.text);
       }
     );
-}
-
-export function onOpen() {
-  return async (dispatch) => {
-    dispatch(fetchContentStart());
-
-    try {
-      dispatch(onOpenContent());
-    } catch (e) {
-      dispatch(fetchContentError(e));
-    }
-  };
-}
-
-export function onClose() {
-  return async (dispatch) => {
-    dispatch(fetchContentStart());
-
-    try {
-      dispatch(onCloseContent());
-    } catch (e) {
-      dispatch(fetchContentError(e));
-    }
-  };
 }
