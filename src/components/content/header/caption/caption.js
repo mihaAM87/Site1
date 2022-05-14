@@ -32,7 +32,7 @@ export default function Caption() {
       <div className="container">
         <div className="row align-items-center">
           <div className="col-md-4">
-            <NavbarBrand as={NavLink} to="/" exact>
+            <NavbarBrand as={NavLink} to="/">
               <img
                 alt="Логотип"
                 src={IMG_DIRECTORY + MAIN_IMGES_DIR + LOGOTYPE}

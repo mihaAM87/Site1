@@ -12,7 +12,7 @@ export default function Modal() {
   let { userName, userEmail, userPhone } = store.getState().content;
 
   const send = () => {
-    dispatch(onSend('testName', 'testEmail', 'testPhone'));
+    dispatch(onSend(userName, userEmail, userPhone));
     hide();
   };
 

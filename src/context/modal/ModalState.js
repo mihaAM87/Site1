@@ -8,10 +8,9 @@ export const ModalState = ({ children }) => {
 
   const hide = () => dispatch({ type: HIDE_MODAL });
 
-  const show = (type = 'secondary') => {
+  const show = () => {
     dispatch({
       type: SHOW_MODAL,
-      payload: { type },
     });
   };
 

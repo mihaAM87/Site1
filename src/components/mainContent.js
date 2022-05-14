@@ -7,7 +7,6 @@ import Footer from './content/footer/footer';
 import { useStore } from 'react-redux';
 
 export default function MainContent() {
-  const store = useStore();
   let mainClass = [];
   let headerClass = [];
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import { createStore, applyMiddleware, compose } from 'redux';
@@ -18,13 +18,14 @@ const store = createStore(
   composeEnhancers(applyMiddleware(reduxThunk))
 );
 
-// var cors = require('cors')
+const root = ReactDOM.createRoot(document.getElementById('root'));
 
-const app = (
-  <Provider store={store}>
-    <App />
-  </Provider>
+root.render(
+  <React.StrictMode>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </React.StrictMode>
 );
 
-ReactDOM.render(app, document.getElementById('root'));
 registerServiceWorker();
