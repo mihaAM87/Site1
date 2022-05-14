@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import classes from './caption.module.scss';
 import { NavbarBrand } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
@@ -8,11 +8,9 @@ import {
   IMG_DIRECTORY,
   MAIN_IMGES_DIR,
 } from '../../../../store/actions/content';
-import PropTypes from 'prop-types';
 import { fetchAllContentByType } from '../../../../store/actions/contentSrc';
-import { connect } from 'react-redux';
 import { useDispatch, useStore } from 'react-redux';
-import { ModalContext } from '../../context/modal/modalContext';
+import { ModalContext } from '../../../../context/modal/modalContext';
 
 export default function Caption() {
   const { show } = useContext(ModalContext);

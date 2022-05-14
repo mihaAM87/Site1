@@ -6,7 +6,7 @@ const handlers = {
   DEFAULT: (state) => state,
 };
 
-export const alertReducer = (state, action) => {
+export const modalReducer = (state, action) => {
   const handler = handlers[action.type] || handlers.DEFAULT;
   return handler(state, action);
 };

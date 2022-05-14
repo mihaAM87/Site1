@@ -9,8 +9,6 @@ import {
   START,
   ERROR,
   SEND_USER_INFO,
-  OPEN_MODAL_VIEW,
-  CLOSE_MODAL_VIEW,
   SCHEDULE,
   SESSIONS,
   CONTACTS,
@@ -78,18 +76,6 @@ export default function contentReducer(state = initialState, action) {
         ...state,
         loading: false,
         error: action.error,
-      };
-    case OPEN_MODAL_VIEW:
-      return {
-        ...state,
-        loading: false,
-        visibleModel: true,
-      };
-    case CLOSE_MODAL_VIEW:
-      return {
-        ...state,
-        loading: false,
-        visibleModel: false,
       };
     case LOAD_ALL_CONTENTS + CONTACTS:
       return {

@@ -8,8 +8,6 @@ import {
   START,
   ERROR,
   SEND_USER_INFO,
-  OPEN_MODAL_VIEW,
-  CLOSE_MODAL_VIEW,
   SCHEDULE,
   SESSIONS,
   CONTACTS,
@@ -154,7 +152,6 @@ export function onSend(userName, userEmail, contact_number) {
 
     try {
       dispatch(sendEmail(userName, userEmail, contact_number));
-      dispatch(onClose());
     } catch (e) {
       dispatch(fetchContentError(e));
     }

@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import classes from './left.module.scss';
 import { Link } from 'react-router-dom';
-import { ModalContext } from '../../context/modal/modalContext';
+import { ModalContext } from '../../../../context/modal/modalContext';
 
 export default function Left() {
   const { show } = useContext(ModalContext);

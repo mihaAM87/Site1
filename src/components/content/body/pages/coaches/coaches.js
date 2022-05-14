@@ -1,20 +1,19 @@
-import React, { Component } from 'react';
+import React, { useContext } from 'react';
 import {
   IMG_DIRECTORY,
   COACHES_IMGES_DIR,
 } from '../../../../../store/actions/content';
-import {
-  fetchAllContentByType,
-  onOpen,
-} from '../../../../../store/actions/contentSrc';
+import { fetchAllContentByType } from '../../../../../store/actions/contentSrc';
 import Card from 'react-bootstrap/Card';
 import Carusel from '../../../carusel/carusel';
 import classes from './coaches.module.scss';
 import { useDispatch, useStore } from 'react-redux';
+import { ModalContext } from '../../../../../context/modal/modalContext';
 
 export default function Coaches({ sportType }) {
   const store = useStore();
   const dispatch = useDispatch();
+  const { show } = useContext(ModalContext);
 
   dispatch(fetchAllContentByType('coaches'));
 
@@ -57,7 +56,7 @@ export default function Coaches({ sportType }) {
               <button
                 className="form-control btn btn-primary"
                 variant="primary"
-                onClick={onOpen}
+                onClick={show}
               >
                 Записаться
               </button>

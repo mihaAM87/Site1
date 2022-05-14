@@ -1,12 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import classes from './mainContent.module.scss';
 import Header from './content/header/header';
 import MainImage from './content/mainImage/mainImage';
 import Body from './content/body/body';
 import Footer from './content/footer/footer';
-import Modal from './content/modal/modal';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import { useStore } from 'react-redux';
 
 export default function MainContent() {
@@ -31,7 +28,6 @@ export default function MainContent() {
         <Body />
 
         <Footer />
-        <Modal />
       </div>
     </div>
   );

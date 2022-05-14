@@ -18,5 +18,3 @@ export const SCHEDULE = 'SCHEDULE';
 export const SESSIONS = 'SESSIONS';
 export const ERROR = 'ERROR';
 export const START = 'START';
-export const OPEN_MODAL_VIEW = 'OPEN_MODAL_VIEW';
-export const CLOSE_MODAL_VIEW = 'CLOSE_MODAL_VIEW';
