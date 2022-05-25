@@ -7,23 +7,15 @@ import emailjs from 'emailjs-com';
 
 export default function Modal() {
   const store = useStore();
-  const dispatch = useDispatch();
   const { modal, hide } = useContext(ModalContext);
 
-  let { userName, userEmail, userPhone } = store.getState().content;
-
-  // создаем обработчик нажатия клавиши Esc
-  const onKeydown = (key) => {
-    switch (key) {
-      case 'Escape':
-        hide();
-        break;
-    }
-  };
-
   const mainClasses = [];
-  mainClasses.push('row');
+  // mainClasses.push('row');
   mainClasses.push(classes.modal);
+
+  const modalDialogClasses = [];
+  mainClasses.push('contact-form');
+  mainClasses.push(classes.modalDialog);
 
   // c помощью useEffect цепляем обработчик к нажатию клавиш
   // https://ru.reactjs.org/docs/hooks-effect.html
@@ -38,78 +30,85 @@ export default function Modal() {
   const sendEmail = (e) => {
     e.preventDefault(); //This is important, i'm not sure why, but the email won't send without it
 
-    emailjs
-      .sendForm(
-        'service_14jmwku',
-        'template_f31ex0a',
-        e.target,
-        'XYNOX-L544CmbvKdh'
-      )
-      .then(
-        (result) => {
-          window.location.reload(); //This is if you still want the page to reload (since e.preventDefault() cancelled that behavior)
-        },
-        (error) => {
-          console.log(error.text);
-        }
-      );
-    hide();
+    const target = e.target;
+
+    if (
+      target?.from_name?.value &&
+      target?.from_name?.value.trim() != '' &&
+      ((target.from_email?.value && target?.from_email?.value.trim() != '') ||
+        (target.from_phone?.value && target?.from_phone?.value.trim() != ''))
+    ) {
+      emailjs
+        .sendForm(
+          'service_14jmwku',
+          'template_f31ex0a',
+          target,
+          'XYNOX-L544CmbvKdh'
+        )
+        .then(
+          (result) => {
+            window.location.reload(); //This is if you still want the page to reload (since e.preventDefault() cancelled that behavior)
+          },
+          (error) => {
+            console.log(error.text);
+          }
+        );
+      hide();
+    }
   };
 
   // или возвращаем верстку модального окна
   return (
     <div className={mainClasses.join(' ')}>
-      <Form className="contact-form" onSubmit={sendEmail}>
-        <div className="row">
-          <div className="row">
-            <div>
-              <h3>Закзать</h3>
-              <h3>Звонок</h3>
-            </div>
-            <span className="modal-close" onClick={hide}>
-              &times;
-            </span>
+      <Form onSubmit={sendEmail}>
+        <div className={classes.modalHeader}>
+          <div>
+            <h3 className={classes.modalTitle}>Закзать</h3>
+            <h3 className={classes.modalTitle}>Звонок</h3>
           </div>
-          <div className="row">
-            <div className="row">
-              <Form.Group>
-                <Form.Control
-                  name="from_name"
-                  id="from_name"
-                  type="text"
-                  placeholder="Имя"
-                />
-              </Form.Group>
+          <span className={classes.modalClose} onClick={hide}>
+            &times;
+          </span>
+        </div>
+        <div className={classes.modalBody}>
+          <div className={classes.modalContent}>
+            <Form.Group>
+              <Form.Control
+                name="from_name"
+                id="from_name"
+                type="text"
+                placeholder="Имя"
+              />
+            </Form.Group>
 
-              <Form.Group>
-                <Form.Control
-                  name="from_email"
-                  id="from_email"
-                  type="email"
-                  placeholder="name@example.com"
-                />
-              </Form.Group>
-              <Form.Group>
-                <Form.Control
-                  name="from_phone"
-                  id="from_phone"
-                  type="text"
-                  placeholder="Телефон"
-                />
-              </Form.Group>
-            </div>
+            <Form.Group>
+              <Form.Control
+                name="from_email"
+                id="from_email"
+                type="email"
+                placeholder="name@example.com"
+              />
+            </Form.Group>
+            <Form.Group>
+              <Form.Control
+                name="from_phone"
+                id="from_phone"
+                type="text"
+                placeholder="Телефон"
+              />
+            </Form.Group>
           </div>
-          <div className="row">
-            <div className="col-md-6">
-              <button class="form-control btn btn-success" type="submit">
-                Записаться
-              </button>
-            </div>
-            <div className="col-md-6">
-              <button class="form-control btn btn-primary" onClick={hide}>
-                Закрыть
-              </button>
-            </div>
+        </div>
+        <div className={classes.modalFooter}>
+          <div className="col-md-6">
+            <button class="form-control btn btn-success" type="submit">
+              Записаться
+            </button>
+          </div>
+          <div className="col-md-6">
+            <button class="form-control btn btn-primary" onClick={hide}>
+              Закрыть
+            </button>
           </div>
         </div>
       </Form>
