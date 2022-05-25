@@ -53,6 +53,7 @@ export default function Modal() {
           console.log(error.text);
         }
       );
+    hide();
   };
 
   // или возвращаем верстку модального окна
