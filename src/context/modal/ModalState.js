@@ -11,6 +11,7 @@ export const ModalState = ({ children }) => {
   const show = () => {
     dispatch({
       type: SHOW_MODAL,
+      payload: {},
     });
   };
 

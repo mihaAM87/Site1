@@ -14,9 +14,6 @@ import {
 } from './content';
 import { useDispatch } from 'react-redux';
 
-import React from 'react';
-import emailjs from 'emailjs-com';
-
 import coachesSource from '../source/coachesSource.json';
 import groupTypesSource from '../source/groupTypesSource.json';
 import pricesSource from '../source/pricesSource.json';
@@ -144,34 +141,4 @@ export function fetchAllContentByType(type) {
       dispatch(fetchContentError(e));
     }
   };
-}
-
-export function onSend(userName, userEmail, contact_number) {
-  return async (dispatch) => {
-    dispatch(fetchContentStart());
-
-    try {
-      dispatch(sendEmail(userName, userEmail, contact_number));
-    } catch (e) {
-      dispatch(fetchContentError(e));
-    }
-  };
-}
-
-function sendEmail(from_name, userEmail, userPhone) {
-  emailjs
-    .sendForm(
-      'service_14jmwku',
-      'template_f31ex0a',
-      { from_name, userEmail, userPhone },
-      'XYNOX-L544CmbvKdh'
-    )
-    .then(
-      (result) => {
-        window.location.reload(); //This is if you still want the page to reload (since e.preventDefault() cancelled that behavior)
-      },
-      (error) => {
-        console.log(error.text);
-      }
-    );
 }

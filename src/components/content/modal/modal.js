@@ -1,8 +1,9 @@
+import React, { useContext } from 'react';
 import { Form } from 'react-bootstrap';
-import { onSend } from '../../../store/actions/contentSrc';
 import { useDispatch, useStore } from 'react-redux';
 import classes from './modal.module.scss';
 import { ModalContext } from '../../../context/modal/modalContext';
+import emailjs from 'emailjs-com';
 
 export default function Modal() {
   const store = useStore();
@@ -10,11 +11,6 @@ export default function Modal() {
   const { modal, hide } = useContext(ModalContext);
 
   let { userName, userEmail, userPhone } = store.getState().content;
-
-  const send = () => {
-    dispatch(onSend(userName, userEmail, userPhone));
-    hide();
-  };
 
   // создаем обработчик нажатия клавиши Esc
   const onKeydown = (key) => {
@@ -39,11 +35,31 @@ export default function Modal() {
   // если компонент невидим, то не отображаем его
   if (!modal) return null;
 
+  const sendEmail = (e) => {
+    e.preventDefault(); //This is important, i'm not sure why, but the email won't send without it
+
+    emailjs
+      .sendForm(
+        'service_14jmwku',
+        'template_f31ex0a',
+        e.target,
+        'XYNOX-L544CmbvKdh'
+      )
+      .then(
+        (result) => {
+          window.location.reload(); //This is if you still want the page to reload (since e.preventDefault() cancelled that behavior)
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+  };
+
   // или возвращаем верстку модального окна
   return (
     <div className={mainClasses.join(' ')}>
-      <Form>
-        <div className="modal-dialog row">
+      <Form className="contact-form" onSubmit={sendEmail}>
+        <div className="row">
           <div className="row">
             <div>
               <h3>Закзать</h3>
@@ -56,19 +72,26 @@ export default function Modal() {
           <div className="row">
             <div className="row">
               <Form.Group>
-                <Form.Control name={userName} type="text" placeholder="Имя" />
+                <Form.Control
+                  name="from_name"
+                  id="from_name"
+                  type="text"
+                  placeholder="Имя"
+                />
               </Form.Group>
 
               <Form.Group>
                 <Form.Control
-                  name={userEmail}
+                  name="from_email"
+                  id="from_email"
                   type="email"
                   placeholder="name@example.com"
                 />
               </Form.Group>
               <Form.Group>
                 <Form.Control
-                  name={userPhone}
+                  name="from_phone"
+                  id="from_phone"
                   type="text"
                   placeholder="Телефон"
                 />
@@ -77,7 +100,7 @@ export default function Modal() {
           </div>
           <div className="row">
             <div className="col-md-6">
-              <button class="form-control btn btn-success" onClick={send}>
+              <button class="form-control btn btn-success" type="submit">
                 Записаться
               </button>
             </div>
