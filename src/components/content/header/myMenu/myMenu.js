@@ -3,6 +3,7 @@ import { Navbar, Nav, NavDropdown, Container } from 'react-bootstrap';
 import { NavLink, Link } from 'react-router-dom';
 import { fetchAllContentByType } from '../../../../store/actions/contentSrc';
 import { useDispatch, useStore } from 'react-redux';
+import classes from './myMenu.module.scss';
 
 export default function MyMenu() {
   const store = useStore();
@@ -36,8 +37,11 @@ export default function MyMenu() {
     <Navbar bg="danger" expand="lg" variant="dark">
       <Container>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
+        <Navbar.Collapse>
+          <Nav
+            className={`me-auto justify-content-between nav ${classes.nav}`}
+            justify="true"
+          >
             <NavDropdown title="Виды спорта" id="basic-nav-dropdown">
               {sportTypesArr}
             </NavDropdown>
