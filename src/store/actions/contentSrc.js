@@ -102,7 +102,7 @@ export function getContactsContent(content) {
   };
 }
 
-export function fetchAllContentByType(type, name) {
+export function fetchAllContentByType(type) {
   return async (dispatch) => {
     dispatch(fetchContentStart());
 
@@ -110,11 +110,14 @@ export function fetchAllContentByType(type, name) {
       switch (type) {
         case 'sportTypes': {
           const header = sportTypesSource.header;
-          if (name && name != '') {
-            sportTypesSource = sportTypesSource.contents?.find(
-              (item) => item.name?.toLowerCase() === name?.toLowerCase()
-            );
-          }
+          // let sportTypesSourceResult = [];
+          // if (name && name != '') {
+          //   sportTypesSourceResult = sportTypesSource.contents?.find(
+          //     (item) => item.name?.toLowerCase() === name?.toLowerCase()
+          //   );
+          // } else {
+          //   sportTypesSourceResult = sportTypesSource;
+          // }
 
           dispatch(getSportTypeContent(sportTypesSource, header));
           break;

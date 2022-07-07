@@ -34,18 +34,23 @@ class SportTypes extends Component {
 
   // Перед отрисовкой интерфейса, инициализация входных данных из Redux
   UNSAFE_componentWillMount() {
-    const name = this.props?.params?.name;
-    this.props.onFetchAllContentByType('sportTypes', name);
+    this.props.onFetchAllContentByType('sportTypes');
   }
 
   render() {
     let { sportTypesArr, header } = this.props;
     const name = this.props?.params?.name;
     sportTypesArr = sportTypesArr || [];
-    // let sportTypeItem = sportTypesArr.contents?.find(
-    //   (item) => item.name?.toLowerCase() === name?.toLowerCase()
-    // );
-    let sportTypeItem = sportTypesArr;
+
+    let sportTypeItem = [];
+
+    if (sportTypesArr.contents && sportTypesArr.contents.length > 0) {
+      sportTypeItem = sportTypesArr.contents?.find(
+        (item) => item.name?.toLowerCase() === name?.toLowerCase()
+      );
+    }
+
+    // let sportTypeItem = sportTypesArr;
 
     const navClass = [];
 
@@ -91,8 +96,8 @@ function mapStateToProps(state) {
 // Регистрация функций Redux
 function mapDiaspatchToProps(dispatch) {
   return {
-    onFetchAllContentByType: (seacrhFilter, name) =>
-      dispatch(fetchAllContentByType(seacrhFilter, name)),
+    onFetchAllContentByType: (seacrhFilter) =>
+      dispatch(fetchAllContentByType(seacrhFilter)),
   };
 }
 

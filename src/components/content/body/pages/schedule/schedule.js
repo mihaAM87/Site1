@@ -41,41 +41,56 @@ class Schedule extends Component {
     sessionArr = sessionArr || [];
     coachesArr = coachesArr || [];
 
-    let tableHead = scheduleArr?.contents[0]?.contents?.map(function (
-      item,
-      index,
-      array
+    let tableHead = [];
+
+    if (
+      scheduleArr?.contents &&
+      scheduleArr?.contents.length > 0 &&
+      scheduleArr?.contents[0]?.contents &&
+      scheduleArr?.contents[0]?.contents.length > 0
     ) {
-      return <th>{item?.name}</th>;
-    });
+      tableHead = scheduleArr?.contents[0]?.contents?.map(function (
+        item,
+        index,
+        array
+      ) {
+        return <th>{item?.name}</th>;
+      });
+    }
 
-    let tableBody = scheduleArr?.contents?.map(function (item, index, array) {
-      return (
-        <tr>
-          <td>
-            {item?.from} - {item?.to}
-          </td>
-          {item?.contents?.map(function (item, index, array) {
-            let currentSessionArr = sessionArr?.contents?.filter((k) =>
-              item?.content?.sessions?.find((x) =>
-                x?.sessionsIds?.includes(k?.id)
-              )
-            );
-            let currentCoacheArr = coachesArr?.contents?.filter((k) =>
-              item?.content?.sessions?.find((x) => x.coachesIds?.includes(k.id))
-            );
+    let tableBody = [];
 
-            return (
-              <td>
-                {currentSessionArr?.map((x) => x?.name).join(' / ')}
-                <br />
-                {currentCoacheArr?.map((x) => x?.content?.header).join(' / ')}
-              </td>
-            );
-          })}
-        </tr>
-      );
-    });
+    if (scheduleArr?.contents && scheduleArr?.contents.length > 0) {
+      tableBody = scheduleArr?.contents?.map(function (item, index, array) {
+        return (
+          <tr>
+            <td>
+              {item?.from} - {item?.to}
+            </td>
+            {item?.contents?.map(function (item, index, array) {
+              let currentSessionArr = sessionArr?.contents?.filter((k) =>
+                item?.content?.sessions?.find((x) =>
+                  x?.sessionsIds?.includes(k?.id)
+                )
+              );
+              let currentCoacheArr = coachesArr?.contents?.filter((k) =>
+                item?.content?.sessions?.find((x) =>
+                  x.coachesIds?.includes(k.id)
+                )
+              );
+
+              return (
+                <td>
+                  {currentSessionArr?.map((x) => x?.name).join(' / ')}
+                  <br />
+                  {currentCoacheArr?.map((x) => x?.content?.header).join(' / ')}
+                </td>
+              );
+            })}
+          </tr>
+        );
+      });
+    }
 
     const navClass = [];
 

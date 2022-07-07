@@ -131,12 +131,12 @@ export default function Modal() {
           </div>
           <div className={classes.modalFooter}>
             <div className="col-md-6">
-              <button class="form-control btn btn-success" type="submit">
+              <button className="form-control btn btn-success" type="submit">
                 Записаться
               </button>
             </div>
             <div className="col-md-6">
-              <button class="form-control btn btn-primary" onClick={onHide}>
+              <button className="form-control btn btn-primary" onClick={onHide}>
                 Закрыть
               </button>
             </div>

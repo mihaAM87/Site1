@@ -53,7 +53,12 @@ class Coaches extends Component {
 
     itemClass.push('col-md-4');
 
-    if (sportType && sportType != '') {
+    if (
+      sportType &&
+      sportType != '' &&
+      coachesArr?.contents &&
+      coachesArr?.contents.length > 0
+    ) {
       coachesArr = coachesArr?.contents?.filter(
         (item) => item.content.type.toLowerCase() === sportType?.toLowerCase()
       );
