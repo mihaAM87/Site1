@@ -34,6 +34,7 @@ export default function contentReducer(state = initialState, action) {
         ...state,
         loading: false,
         sportTypesArr: action.contentArr,
+        header: action.header,
       };
     case LOAD_ALL_CONTENTS + SPORT_TYPES_ITEM:
       return {
@@ -81,7 +82,7 @@ export default function contentReducer(state = initialState, action) {
       return {
         ...state,
         loading: false,
-        contacts: action.contentArr,
+        contacts: action.content,
       };
     case SEND_USER_INFO:
       return {

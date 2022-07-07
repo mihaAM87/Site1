@@ -36,10 +36,11 @@ export function fetchContentError(e) {
   };
 }
 
-export function getSportTypeContent(contentArr) {
+export function getSportTypeContent(contentArr, header) {
   return {
     type: LOAD_ALL_CONTENTS + SPORT_TYPES,
     contentArr,
+    header,
   };
 }
 
@@ -94,22 +95,28 @@ export function getSessionsContent(contentArr) {
   };
 }
 
-export function contactsContent(contentArr) {
+export function getContactsContent(content) {
   return {
     type: LOAD_ALL_CONTENTS + CONTACTS,
-    contentArr,
+    content,
   };
 }
 
-export function fetchAllContentByType(type) {
-  return async () => {
-    const dispatch = useDispatch();
+export function fetchAllContentByType(type, name) {
+  return async (dispatch) => {
     dispatch(fetchContentStart());
 
     try {
       switch (type) {
         case 'sportTypes': {
-          dispatch(getSportTypeContent(sportTypesSource));
+          const header = sportTypesSource.header;
+          if (name && name != '') {
+            sportTypesSource = sportTypesSource.contents?.find(
+              (item) => item.name?.toLowerCase() === name?.toLowerCase()
+            );
+          }
+
+          dispatch(getSportTypeContent(sportTypesSource, header));
           break;
         }
         case 'coaches': {
@@ -133,7 +140,7 @@ export function fetchAllContentByType(type) {
           break;
         }
         case 'contacts': {
-          dispatch(contactsContent(contactsSource));
+          dispatch(getContactsContent(contactsSource));
           break;
         }
       }
