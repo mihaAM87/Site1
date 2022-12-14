@@ -10,6 +10,9 @@ export default function Right() {
   const imgClass = [];
 
   imgClass.push(classes.mainImg);
+
+  imgClass.push('row');
+
   return (
     <div className="col-md-6">
       <img

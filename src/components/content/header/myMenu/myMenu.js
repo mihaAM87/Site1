@@ -46,7 +46,11 @@ class MyMenu extends Component {
     ) {
       sportTypesArr = sportTypesArr.contents.map((element) => {
         return (
-          <NavDropdown.Item as={NavLink} to={'/sportTypes/' + element.name}>
+          <NavDropdown.Item
+            as={NavLink}
+            to={'/sportTypes/' + element.name}
+            className="bg-danger text-white"
+          >
             {element.header}
           </NavDropdown.Item>
         );
@@ -59,7 +63,7 @@ class MyMenu extends Component {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse>
             <Nav
-              className={`me-auto justify-content-between nav ${classes.nav}`}
+              className={`me-auto justify-content-between nav ${classes.nav} bg-danger text-white`}
               justify="true"
             >
               <NavDropdown title="Виды спорта" id="basic-nav-dropdown">
