@@ -45,6 +45,7 @@ class SportTypes extends Component {
     let { sportTypesArr, header, show } = this.props;
     const name = this.props?.params?.name;
     sportTypesArr = sportTypesArr || [];
+<<<<<<< HEAD
 
     let sportTypeItem = [];
 
@@ -54,6 +55,11 @@ class SportTypes extends Component {
       );
     }
 
+=======
+    let sportTypeItem = sportTypesArr.contents?.find(
+      (item) => item.name?.toLowerCase() === name?.toLowerCase()
+    );
+>>>>>>> c3fdd1c12f5099aa8e3769baaf60088d97a23570
     // let sportTypeItem = sportTypesArr;
 
     const navClass = [];
