@@ -54,13 +54,14 @@ class Caption extends Component {
         <div className="container">
           <div className="row align-items-center">
             <div className="col-md-4">
-              <NavbarBrand as={NavLink} to="/">
+              {/* <NavbarBrand as={NavLink} to="/">
                 <img
                   alt="Логотип"
                   src={IMG_DIRECTORY + MAIN_IMGES_DIR + LOGOTYPE}
                   className={classes.logotype}
                 ></img>
-              </NavbarBrand>
+              </NavbarBrand> */}
+              <h4>СК Люблино</h4>
             </div>
             <div className="col-md-3">
               <img
