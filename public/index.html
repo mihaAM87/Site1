@@ -2,6 +2,12 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE11" /> -->
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE10" /> -->
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9" /> -->
+
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
@@ -28,6 +34,24 @@
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
+    <script>
+      if (!String.endsWith) {
+        String.prototype.endsWith = function (searchString, position) {
+          var subjectString = this.toString();
+          if (
+            typeof position !== 'number' ||
+            !isFinite(position) ||
+            Math.floor(position) !== position ||
+            position > subjectString.length
+          ) {
+            position = subjectString.length;
+          }
+          position -= searchString.length;
+          var lastIndex = subjectString.indexOf(searchString, position);
+          return lastIndex !== -1 && lastIndex === position;
+        };
+      }
+    </script>
     <div id="root"></div>
     <!--
       This HTML file is a template.
